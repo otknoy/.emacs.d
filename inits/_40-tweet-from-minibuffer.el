@@ -1,0 +1,1 @@
+(require 'tweet-from-minibuffer)
