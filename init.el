@@ -44,6 +44,7 @@
 
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 ; (add-to-load-path "elisp" "conf" "public_repos")
+(add-to-load-path "elisp")
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")
