@@ -19,6 +19,9 @@
     auto-complete
     popwin
     markdown-mode
+    js2-mode
+    auto-highlight-symbol
+    google-translate
     ))
 
 (let ((not-installed (loop for x in installing-package-list
