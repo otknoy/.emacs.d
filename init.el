@@ -13,15 +13,15 @@
 (defvar installing-package-list
   '(
     ;; ここに使っているパッケージを書く。
-    init-loader
-    color-theme
-    magit
     auto-complete
-    popwin
-    markdown-mode
-    js2-mode
     auto-highlight-symbol
+    color-theme
     google-translate
+    init-loader
+    js2-mode
+    magit
+    markdown-mode
+    popwin
     ))
 
 (let ((not-installed (loop for x in installing-package-list
