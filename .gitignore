@@ -2,6 +2,8 @@
 
 *.elc
 
+tramp
+
 auto-save-list/*
 backups/*
 elpa/*
