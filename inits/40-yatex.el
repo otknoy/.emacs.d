@@ -33,3 +33,5 @@
 (require 'popwin-yatex)
 (push '("*YaTeX-typesetting*" :noselect t) popwin:special-display-config)
 
+;; Fix to enable using ';' and ':'
+(defvaralias 'last-command-char 'last-command-event)
