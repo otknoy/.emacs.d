@@ -15,6 +15,7 @@
     ;; ここに使っているパッケージを書く。
     auto-complete
     auto-highlight-symbol
+    anzu
     color-theme
     google-translate
     init-loader
