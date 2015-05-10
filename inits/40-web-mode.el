@@ -12,9 +12,16 @@
 	("blade"  . "\\.blade\\.")))
 
 ;; indentation
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
+(defun web-mode-indent (num)
+  (interactive "nIndent: ")
+  (setq web-mode-markup-indent-offset num)
+  (setq web-mode-css-indent-offset num)
+  (setq web-mode-style-padding num)
+  (setq web-mode-code-indent-offset num)
+  (setq web-mode-script-padding num)
+  (setq web-mode-block-padding num)
+  )
+(web-mode-indent 2)
 
 ;; color
 (custom-set-faces
