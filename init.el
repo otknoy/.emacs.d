@@ -26,6 +26,7 @@
     web-mode
     processing-mode
     jinja2-mode
+    php-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
