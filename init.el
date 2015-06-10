@@ -25,6 +25,7 @@
     popwin
     web-mode
     processing-mode
+    php-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
