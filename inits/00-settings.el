@@ -27,7 +27,7 @@
 ;; Mac OSX
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil
-		      :family "Ricty Ascii"
+		      :family "Ricty"
 		      :height 135)
   ;; Japanese font
   (set-fontset-font
@@ -111,9 +111,9 @@
 (when (eq system-type 'darwin)
   ;; window size and position
   (setq initial-frame-alist
-	'((width . 98)
-	  (height . 58)
-	  (top . 32)
+	'((width . 86)
+	  (height . 50)
+	  (top . 24)
 	  (left . 720))))
 
 
