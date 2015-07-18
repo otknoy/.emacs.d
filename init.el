@@ -28,6 +28,7 @@
     php-mode
     jedi
     exec-path-from-shell
+    flymake-cursor
     ))
 
 (let ((not-installed (loop for x in installing-package-list
