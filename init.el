@@ -26,6 +26,8 @@
     web-mode
     processing-mode
     php-mode
+    jedi
+    exec-path-from-shell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
