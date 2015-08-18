@@ -25,6 +25,7 @@
     popwin
     web-mode
     processing-mode
+    jinja2-mode
     php-mode
     jedi
     exec-path-from-shell
