@@ -1,61 +1,18 @@
-;;; package.el
-(require 'package)
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-; (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
-(package-initialize)
-
-
-;; auto install
-(require 'cl)
-
-(defvar installing-package-list
-  '(
-    ;; ここに使っているパッケージを書く。
-    anzu
-    auto-complete
-    auto-highlight-symbol
-    color-theme
-    exec-path-from-shell
-    flymake-cursor
-    google-translate
-    init-loader
-    jedi
-    jinja2-mode
-    js2-mode
-    magit
-    markdown-mode
-    php-mode
-    popwin
-    processing-mode
-    web-mode
-    ))
-
-(let ((not-installed (loop for x in installing-package-list
-                            when (not (package-installed-p x))
-                            collect x)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (pkg not-installed)
-        (package-install pkg))))
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
 
-
-;;; init-loader.el
-;; load-path を追加する関数を定義
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory
-	      (expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	    (normal-top-level-add-subdirs-to-load-path))))))
-
-;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
-; (add-to-load-path "elisp" "conf" "public_repos")
-(add-to-load-path "elisp")
-
+(el-get-bundle init-loader)
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")
