@@ -4,5 +4,5 @@
 
 (defun markdown-custom ()
   "markdown-mode-hook"
-  (setq markdown-command "/opt/local/bin/multimarkdown"))
+  (setq markdown-command "/usr/local/bin/markdown"))
 (add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
