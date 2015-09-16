@@ -13,23 +13,23 @@
 (defvar installing-package-list
   '(
     ;; ここに使っているパッケージを書く。
+    anzu
     auto-complete
     auto-highlight-symbol
-    anzu
     color-theme
+    exec-path-from-shell
+    flymake-cursor
     google-translate
     init-loader
+    jedi
+    jinja2-mode
     js2-mode
     magit
     markdown-mode
-    popwin
-    web-mode
-    processing-mode
-    jinja2-mode
     php-mode
-    jedi
-    exec-path-from-shell
-    flymake-cursor
+    popwin
+    processing-mode
+    web-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
