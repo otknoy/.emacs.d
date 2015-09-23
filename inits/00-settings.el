@@ -1,16 +1,8 @@
 ;;; coding system
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
-;; ;; Mac
-;; (when (eq system-type 'darwin)
-;;   (set-file-name-coding-system 'utf-8-hfs)
-;;   (setq locale-cofing-system 'utf-8-hfs))
-;; Windows
-;; (when (eq system-type 'windows-nt)
-;;   (set-file-name-coding-system 'cp932)
-;;   (setq locale-cofing-system 'cp932))
 
-
+;;; color setting
 (when window-system
   ;; menu, tool and scroll bar are invisible.
   (menu-bar-mode 0)
@@ -23,7 +15,7 @@
   ;; frame alphan
   (set-frame-parameter nil 'alpha 80))
 
-;;; font
+;;; font settings
 ;; Mac OSX
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil
@@ -49,6 +41,7 @@
    (font-spec :family "Meiryo" :size 13)))
 
 
+;;; other
 (custom-set-variables
  '(read-file-name-completion-ignore-case t))
 
@@ -75,7 +68,6 @@
 ;; (setq hl-line-face 'underline)
 (global-hl-line-mode)
 
-
 ;; word単位をCamelCaseに対応
 (add-hook 'c-mode-common-hook 'subword-mode)
 (add-hook 'js2-mode-hook 'subword-mode)
@@ -92,10 +84,6 @@
 ;; ファイルが #! から始まる場合、+xをつけて保存する
 (add-hook 'after-save-hook
 	  'executable-make-buffer-file-executable-if-script-p)
-
-;; ibus
-;; (when (require 'ibus nil t)
-;;   (add-hook 'after-init-hook 'ibus-mode-on))
 
 ;; beep off
 (setq ring-bell-function 'ignore)
@@ -116,12 +104,5 @@
 	  (top . 24)
 	  (left . 720))))
 
-
-;;; server start for emacs-client
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
-
-;;
+;; auto revert mode
 (global-auto-revert-mode 1)
