@@ -17,3 +17,4 @@
 (el-get-bundle elpa:web-mode)
 (el-get-bundle elpa:yatex)
 (el-get-bundle elpa:go-mode)
+(el-get-bundle elpa:flycheck)
