@@ -3,7 +3,6 @@
 (el-get-bundle elpa:auto-highlight-symbol)
 (el-get-bundle elpa:color-theme)
 (el-get-bundle elpa:exec-path-from-shell)
-(el-get-bundle elpa:flymake-cursor)
 (el-get-bundle elpa:google-translate)
 (el-get-bundle elpa:init-loader)
 (el-get-bundle elpa:jedi)
