@@ -1,3 +1,13 @@
+;;; js2-mode
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-hook 'js2-mode-hook
+	  '(lambda ()
+	     (add-to-list 'ac-dictionary-files "~/.emacs.d/elisp/auto-complete/ac-dict/javascript-mode")
+	     ))
+
+
+;;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -44,3 +54,4 @@
  '(web-mode-css-at-rule-face
    ((t (:foreground "#FF7F00"))))                          ; cssのタグ
  )
+
