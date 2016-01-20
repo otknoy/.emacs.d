@@ -22,16 +22,10 @@
 	("blade"  . "\\.blade\\.")))
 
 ;; indentation
-(defun web-mode-indent (num)
-  (interactive "nIndent: ")
-  (setq web-mode-markup-indent-offset num)
-  (setq web-mode-css-indent-offset num)
-  (setq web-mode-code-indent-offset num)
-  (setq web-mode-style-padding num)
-  (setq web-mode-script-padding num)
-  (setq web-mode-block-padding num)
-  )
-(web-mode-indent 2)
+(defun web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook 'web-mode-hook)
 
 ;; color
 (custom-set-faces
