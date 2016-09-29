@@ -1,5 +1,7 @@
 ;;; coding system
-(set-language-environment "Japanese")
+;(set-language-environment "Japanese")
+(setq dired-default-file-coding-system 'utf-8-unix)
+
 (prefer-coding-system 'utf-8)
 
 ;;; color setting
