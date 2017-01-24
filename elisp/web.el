@@ -5,6 +5,7 @@
 	  '(lambda ()
 	     (add-to-list 'ac-dictionary-files "~/.emacs.d/elisp/auto-complete/ac-dict/javascript-mode")
 	     ))
+(setq js2-basic-offset 2)
 
 
 ;;; web-mode
@@ -22,16 +23,13 @@
 	("blade"  . "\\.blade\\.")))
 
 ;; indentation
-(defun web-mode-indent (num)
-  (interactive "nIndent: ")
-  (setq web-mode-markup-indent-offset num)
-  (setq web-mode-css-indent-offset num)
-  (setq web-mode-code-indent-offset num)
-  (setq web-mode-style-padding num)
-  (setq web-mode-script-padding num)
-  (setq web-mode-block-padding num)
-  )
-(web-mode-indent 2)
+(defun web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+)
+(add-hook 'web-mode-hook 'web-mode-hook)
 
 ;; color
 (custom-set-faces

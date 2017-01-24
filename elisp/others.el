@@ -24,3 +24,10 @@
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:popup-window-position 'bottom)
 
+;; meghanada
+(require 'meghanada)
+(add-hook 'java-mode-hook
+          (lambda ()
+            ;; meghanada-mode on
+            (meghanada-mode t)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace)))
