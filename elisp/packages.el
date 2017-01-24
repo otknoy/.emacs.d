@@ -17,3 +17,4 @@
 (package-install 'go-mode)
 (package-install 'flycheck)
 (package-install 'yaml-mode)
+(package-install 'meghanada)
