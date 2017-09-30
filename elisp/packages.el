@@ -1,3 +1,4 @@
+(package-install 'exec-path-from-shell)
 (package-install 'color-theme)
 (package-install 'anzu)
 (package-install 'auto-complete)
@@ -10,6 +11,8 @@
 (package-install 'jedi)
 (package-install 'js2-mode)
 (package-install 'go-mode)
+(package-install 'go-eldoc)
+(package-install 'go-autocomplete)
 (package-install 'php-mode)
 (package-install 'web-mode)
 

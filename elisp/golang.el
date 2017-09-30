@@ -3,3 +3,17 @@
  'go-mode-hook
  '(lambda () (setq tab-width 2))
  )
+
+; go-eldoc
+(require 'go-eldoc)
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+
+(set-face-attribute 'eldoc-highlight-function-argument nil
+                    :underline t :foreground "green"
+                    :weight 'bold)
+
+; flycheck
+(add-hook 'go-mode-hook 'flycheck-mode)
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
