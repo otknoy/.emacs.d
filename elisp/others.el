@@ -26,3 +26,8 @@
 ;; popwin
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:popup-window-position 'bottom)
+
+;; js2-mode
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default js2-basic-offset 2)
