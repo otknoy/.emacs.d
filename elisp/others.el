@@ -1,3 +1,6 @@
+;; anzu
+(global-anzu-mode +1)
+
 ;; auto-highlight-symbol-mode
 (global-auto-highlight-symbol-mode t)
 (ahs-set-idle-interval 0.3)
@@ -24,10 +27,7 @@
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:popup-window-position 'bottom)
 
-;; meghanada
-(require 'meghanada)
-(add-hook 'java-mode-hook
-          (lambda ()
-            ;; meghanada-mode on
-            (meghanada-mode t)
-            (add-hook 'before-save-hook 'delete-trailing-whitespace)))
+;; js2-mode
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default js2-basic-offset 2)
