@@ -1,4 +1,3 @@
-; (package-install 'exec-path-from-shell)
 (package-install 'color-theme)
 (package-install 'anzu)
 (package-install 'auto-complete)
