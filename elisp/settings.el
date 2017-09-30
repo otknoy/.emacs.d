@@ -1,7 +1,6 @@
 ;;; coding system
-;(set-language-environment "Japanese")
+; (set-language-environment "Japanese")
 (setq dired-default-file-coding-system 'utf-8-unix)
-
 (prefer-coding-system 'utf-8)
 
 ;;; color setting
@@ -108,3 +107,7 @@
 
 ;; auto revert mode
 (global-auto-revert-mode 1)
+
+;; C-z を無効にする
+(when window-system
+  (global-set-key "\C-z" nil))

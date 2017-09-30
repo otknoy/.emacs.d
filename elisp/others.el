@@ -1,3 +1,6 @@
+;; anzu
+(global-anzu-mode +1)
+
 ;; auto-highlight-symbol-mode
 (global-auto-highlight-symbol-mode t)
 (ahs-set-idle-interval 0.3)
@@ -23,11 +26,3 @@
 ;; popwin
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:popup-window-position 'bottom)
-
-;; meghanada
-(require 'meghanada)
-(add-hook 'java-mode-hook
-          (lambda ()
-            ;; meghanada-mode on
-            (meghanada-mode t)
-            (add-hook 'before-save-hook 'delete-trailing-whitespace)))
