@@ -111,3 +111,6 @@
 ;; C-z を無効にする
 (when window-system
   (global-set-key "\C-z" nil))
+
+;; shell から path を引き継ぐ
+(exec-path-from-shell-initialize)
