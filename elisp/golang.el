@@ -1,3 +1,7 @@
+; GOPATRH
+(setenv "GOPATH" "/home/otknoy/go")
+(add-to-list 'exec-path (expand-file-name "/home/otknoy/go/bin"))
+
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook
  'go-mode-hook
