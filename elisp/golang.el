@@ -19,5 +19,8 @@
 ; flycheck
 (add-hook 'go-mode-hook 'flycheck-mode)
 
+; goimports
+(setq gofmt-command "goimports")
+
 (require 'go-autocomplete)
 (require 'auto-complete-config)
