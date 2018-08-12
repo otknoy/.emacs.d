@@ -23,9 +23,11 @@
   (setq markdown-command "/usr/local/bin/markdown"))
 (add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
 
-;; popwin
-(setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:popup-window-position 'bottom)
+;; popwinnn
+; (setq display-buffer-function 'popwin:display-buffer)
+; (setq popwin:popup-window-position 'bottom)
+(require 'popwin)
+(popwin-mode 1)
 
 ;; js2-mode
 (setq-default indent-tabs-mode nil)

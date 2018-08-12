@@ -6,7 +6,7 @@ tramp
 
 auto-save-list/*
 backups/*
-elpa/*
+straight/*
 !.gitkeep
 
 meghanada/
