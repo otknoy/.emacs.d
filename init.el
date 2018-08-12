@@ -1,6 +1,6 @@
 ;;; https://github.com/raxod502/straight.el
 (defvar bootstrap-version)
-n(let ((bootstrap-file
+(let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
