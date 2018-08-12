@@ -1,12 +1,9 @@
-.DS_Store
+/tramp
 
-*.elc
+/auto-save-list/
+/backups/
 
-tramp
+/straight/*
+!/straight/versions/
 
-auto-save-list/*
-backups/*
-straight/*
 !.gitkeep
-
-meghanada/
