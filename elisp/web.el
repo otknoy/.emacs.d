@@ -4,9 +4,12 @@
 (add-hook 'js2-mode-hook
 	  '(lambda ()
 	     (add-to-list 'ac-dictionary-files "~/.emacs.d/elisp/auto-complete/ac-dict/javascript-mode")
+       (setq js2-basic-offset 2)
 	     ))
-(setq js2-basic-offset 2)
-
+;;; jsx
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+;; (add-hook 'js2-jsx-mode-hook 'flycheck-mode)
 
 ;;; web-mode
 (require 'web-mode)
