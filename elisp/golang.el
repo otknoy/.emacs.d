@@ -1,7 +1,13 @@
 ; GOPATRH
-(setenv "GOPATH" "/home/otknoy/go")
-(add-to-list 'exec-path (expand-file-name "/home/otknoy/go/bin"))
+(when (equal system-type 'gnu/linux)
+  (setq homedir "/home/otknoy"))
+(when (equal system-type 'darwin)
+  (setq homedir "/Users/otknoy"))
+(setq gopath (concat homedir "/go"))
+(setenv "GOPATH" gopath)
+(add-to-list 'exec-path (expand-file-name (concat gopath "/bin")))
 
+; hook
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook
  'go-mode-hook
@@ -11,7 +17,6 @@
 ; go-eldoc
 (require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
-
 (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "green"
                     :weight 'bold)
