@@ -10,6 +10,7 @@
 
 (straight-use-package 'jedi)
 (straight-use-package 'js2-mode)
+(straight-use-package 'rjsx-mode)
 (straight-use-package 'go-mode)
 (straight-use-package 'go-eldoc)
 (straight-use-package 'go-autocomplete)
