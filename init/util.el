@@ -33,6 +33,7 @@
   :straight t
   :init (global-flycheck-mode))
 
-(use-package popwin)
+(use-package popwin
+  :config (popwin-mode 1))
 
 (use-package magit)
