@@ -12,15 +12,14 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;;; packages
-(straight-use-package 'init-loader)
-(load-file "~/.emacs.d/elisp/packages.el")
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-;;; config
-(load-file "~/.emacs.d/elisp/settings.el")
-(load-file "~/.emacs.d/elisp/flycheck.el")
-(load-file "~/.emacs.d/elisp/auto-complete-mode.el")
-(load-file "~/.emacs.d/elisp/python.el")
-(load-file "~/.emacs.d/elisp/golang.el")
-(load-file "~/.emacs.d/elisp/web.el")
-(load-file "~/.emacs.d/elisp/others.el")
+(use-package init-loader)
+(load-file "~/.emacs.d/init/setting.el")
+(load-file "~/.emacs.d/init/util.el")
+(load-file "~/.emacs.d/init/python.el")
+(load-file "~/.emacs.d/init/golang.el")
+(load-file "~/.emacs.d/init/web.el")
+(load-file "~/.emacs.d/init/elisp.el")
+(load-file "~/.emacs.d/init/markdown.el")
