@@ -22,4 +22,4 @@
 (load-file "~/.emacs.d/init/golang.el")
 (load-file "~/.emacs.d/init/web.el")
 (load-file "~/.emacs.d/init/elisp.el")
-(load-file "~/.emacs.d/init/markdown.el")
+(load-file "~/.emacs.d/init/text.el")
