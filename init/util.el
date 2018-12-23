@@ -37,3 +37,10 @@
   :config (popwin-mode 1))
 
 (use-package magit)
+
+(use-package git-gutter
+  :config
+  (progn
+    (global-git-gutter-mode t)
+    )
+  )
