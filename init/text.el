@@ -14,3 +14,5 @@
     (add-hook 'markdown-mode-hook '(lambda() (markdown-custom)))
     )
   )
+
+(use-package yaml-mode)
