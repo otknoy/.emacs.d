@@ -8,6 +8,7 @@
  ("emacs-ctable" . "b8830d1ca95abb100a81bc32011bd17d5ecba000")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
  ("emacs-epc" . "e1bfa5ca163273859336e3cc89b4b6460f7f8cda")
+ ("emacs-git-gutter" . "00c05264af046b5ce248e5b0bc42f117d9c27a09")
  ("emacs-go-eldoc" . "cbbd2ea1e94a36004432a9ac61414cb5a95a39bd")
  ("emacs-jedi" . "615544c6ca81bbc53140aefe345e2120110c1660")
  ("emacs-python-environment" . "401006584e32864a10c69d29f14414828909362e")
@@ -32,5 +33,6 @@
  ("treepy.el" . "b40e6b09eb9be45da67b8c9e4990a5a0d7a2a09d")
  ("use-package" . "39a8b8812c2c9f6f0b299e6a04e504ef393694ce")
  ("web-mode" . "5da977bec7714c09d41b556e2d651ccb269a14a2")
- ("with-editor" . "9dd9f176d96abc60365369de6d08c26c414ef1f3"))
+ ("with-editor" . "9dd9f176d96abc60365369de6d08c26c414ef1f3")
+ ("yaml-mode" . "40067a10ac1360f0b9533f0bbbb2eea128e2574d"))
 :saturn
