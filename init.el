@@ -1,4 +1,10 @@
 ;;; https://github.com/raxod502/straight.el
+;; osx setting
+(when (eq system-type 'darwin)
+  (with-eval-after-load 'gnutls
+    (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem"))
+  )
+;; bootstrap
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -12,15 +18,14 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;;; packages
-(straight-use-package 'init-loader)
-(load-file "~/.emacs.d/elisp/packages.el")
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-;;; config
-(load-file "~/.emacs.d/elisp/settings.el")
-(load-file "~/.emacs.d/elisp/flycheck.el")
-(load-file "~/.emacs.d/elisp/auto-complete-mode.el")
-(load-file "~/.emacs.d/elisp/python.el")
-(load-file "~/.emacs.d/elisp/golang.el")
-(load-file "~/.emacs.d/elisp/web.el")
-(load-file "~/.emacs.d/elisp/others.el")
+(use-package init-loader)
+(load-file "~/.emacs.d/init/setting.el")
+(load-file "~/.emacs.d/init/util.el")
+(load-file "~/.emacs.d/init/python.el")
+(load-file "~/.emacs.d/init/golang.el")
+(load-file "~/.emacs.d/init/web.el")
+(load-file "~/.emacs.d/init/elisp.el")
+(load-file "~/.emacs.d/init/text.el")

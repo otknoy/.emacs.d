@@ -1,3 +1,14 @@
+(use-package exec-path-from-shell
+  :config (exec-path-from-shell-initialize))
+
+(use-package color-theme
+  :if window-system
+  :config
+  (progn
+    (color-theme-initialize)
+    (color-theme-clarity))
+  )
+
 ;;; coding system
 ; (set-language-environment "Japanese")
 (setq dired-default-file-coding-system 'utf-8-unix)
@@ -9,10 +20,6 @@
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
-  ;; color theme
-  (when (require 'color-theme nil t)
-    (color-theme-initialize)
-    (color-theme-clarity))
   ;; frame alphan
   (set-frame-parameter nil 'alpha 80))
 
@@ -111,6 +118,3 @@
 ;; C-z を無効にする
 (when window-system
   (global-set-key "\C-z" nil))
-
-;; shell から path を引き継ぐ
-(exec-path-from-shell-initialize)
