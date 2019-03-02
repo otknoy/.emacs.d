@@ -3,9 +3,9 @@
 
 (use-package auto-highlight-symbol
   :config
-  (progn
-    (global-auto-highlight-symbol-mode t)
-    (ahs-set-idle-interval 0.3)))
+  (global-auto-highlight-symbol-mode t)
+  (ahs-set-idle-interval 0.3)
+  )
 
 (use-package company
   :init
@@ -21,7 +21,6 @@
   )
 
 (use-package flycheck
-  :straight t
   :init (global-flycheck-mode))
 
 (use-package popwin
@@ -30,8 +29,4 @@
 (use-package magit)
 
 (use-package git-gutter
-  :config
-  (progn
-    (global-git-gutter-mode t)
-    )
-  )
+  :config (global-git-gutter-mode t))
