@@ -3,34 +3,24 @@
 
 (use-package auto-highlight-symbol
   :config
-  (progn
-    (global-auto-highlight-symbol-mode t)
-    (ahs-set-idle-interval 0.3)))
+  (global-auto-highlight-symbol-mode t)
+  (ahs-set-idle-interval 0.3)
+  )
 
-
-(use-package auto-complete
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (progn
-    (require 'auto-complete-config)
-    (ac-config-default)
-
-    (global-auto-complete-mode t)
-
-    (add-to-list 'ac-dictionary-directories
-		 "~/.emacs.d/elisp/auto-complete/ac-dict")
-    (setq ac-comphist-file "~/.emacs.d/elisp/auto-complete/ac-comphist.dat")
-
-    ;;; keybind
-    (setq ac-use-menu-map t)
-    (define-key ac-menu-map "\C-n" 'ac-next)
-    (define-key ac-menu-map "\C-p" 'ac-previous)
-
-    ;; キーは好きなのを割り当てて下さい
-    (global-set-key (kbd "M-h") 'ac-complete-look)
-    ))
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 2)
+  (setq company-selection-wrap-around t)
+  )
 
 (use-package flycheck
-  :straight t
   :init (global-flycheck-mode))
 
 (use-package popwin
@@ -39,8 +29,4 @@
 (use-package magit)
 
 (use-package git-gutter
-  :config
-  (progn
-    (global-git-gutter-mode t)
-    )
-  )
+  :config (global-git-gutter-mode t))
