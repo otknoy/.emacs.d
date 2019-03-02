@@ -8,10 +8,14 @@
     (ahs-set-idle-interval 0.3)))
 
 (use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (progn
-    (add-hook 'after-init-hook 'global-company-mode)
-    )
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  ()
   )
 
 (use-package flycheck
