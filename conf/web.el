@@ -1,3 +1,17 @@
+(use-package typescript-mode
+  :mode (("\\.ts$" . typescript-mode))
+  )
+(use-package tide
+  :init
+  (add-hook 'typescript-mode-hook
+	    (lambda ()
+	      (tide-setup)
+	      (eldoc-mode t)
+	      (company-mode-on)
+	      )
+	    )
+  )
+
 (use-package js2-mode
   :mode (("\\.js$" . js2-mode))
   :config
