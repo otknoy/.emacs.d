@@ -1,9 +1,8 @@
 (use-package color-theme
   :if window-system
   :config
-  (progn
-    (color-theme-initialize)
-    (color-theme-clarity))
+  (color-theme-initialize)
+  (color-theme-clarity)
   )
 
 ;;; color setting
