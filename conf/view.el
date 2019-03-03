@@ -57,3 +57,8 @@
 (show-paren-mode t)
 (setq show-paren-delay 0)
 
+(use-package dimmer
+  :config
+  (setq dimmer-fraction 0.3333)
+  (dimmer-mode t)
+  )
