@@ -1,4 +1,3 @@
-;;; color-theme
 (use-package color-theme
   :if window-system
   :config
@@ -41,8 +40,8 @@
    nil 'japanese-jisx0208
    (font-spec :family "Meiryo" :size 13)))
 
-
-;;; line highlight
+;; highlight
+; line
 (defface hlline-face
   '((((class color)
       (background dark))
@@ -54,5 +53,8 @@
      ()))
   "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
-;; (setq hl-line-face 'underline)
 (global-hl-line-mode)
+; parenthesis
+(show-paren-mode t)
+(setq show-paren-delay 0)
+

@@ -66,10 +66,6 @@
 (custom-set-variables
  '(read-file-name-completion-ignore-case t))
 
-;; parent-mode
-(setq show-paren-delay 0)
-(show-paren-mode t)
-
 ;; truncate-lines
 (setq truncate-lines t)
 (setq truncate-partial-width-windows 0)
