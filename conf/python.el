@@ -1,6 +1,6 @@
 (use-package jedi
+  :init
+  (add-hook 'python-mode-hook 'jedi:setup)
   :config
-  (progn 
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (setq jedi:complete-on-dot t)
-    ))
+  (setq jedi:complete-on-dot t)
+  )
