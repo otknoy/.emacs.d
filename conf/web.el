@@ -1,5 +1,7 @@
 (use-package typescript-mode
   :mode (("\\.ts$" . typescript-mode))
+  :config
+  (setq typescript-indent-level 2)
   )
 (use-package tide
   :init
