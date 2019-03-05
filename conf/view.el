@@ -59,6 +59,6 @@
 
 (use-package dimmer
   :config
-  (setq dimmer-fraction 0.3333)
+  (setq dimmer-fraction 0.3)
   (dimmer-mode t)
   )
