@@ -1,45 +1,14 @@
+(use-package js
+  :mode (("\\.js$" . js-mode))
+  :config
+  (setq js-indent-level 2)
+  )
+
 (use-package typescript-mode
   :mode (("\\.ts$" . typescript-mode))
   :config
   (setq typescript-indent-level 2)
   )
-(use-package tide
-  :init
-  (add-hook 'typescript-mode-hook
-            (lambda ()
-              (tide-setup)
-              (eldoc-mode t)
-              (company-mode-on)
-              )
-            )
-  )
-
-(use-package js2-mode
-  :mode (("\\.js$" . js2-mode))
-  :config
-  (progn 
-    (add-hook 'js2-mode-hook
-              '(lambda ()
-                 (add-to-list 'ac-dictionary-files "~/.emacs.d/elisp/auto-complete/ac-dict/javascript-mode")
-                 (setq js2-basic-offset 2)
-                 ))
-
-    ;;; jsx
-    ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
-    ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
-    ;; (add-hook 'js2-jsx-mode-hook 'flycheck-mode)
-
-    (setq-default indent-tabs-mode nil)
-    (setq-default tab-width 2)
-    (setq-default js2-basic-offset 2)
-
-    (add-hook 'rjsx-mode-hook
-              (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq js-indent-level 2)
-                )
-              )
-    ))
 
 (use-package web-mode
   :mode (("\\.phtml\\'" . web-mode)
