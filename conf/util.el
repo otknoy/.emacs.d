@@ -35,3 +35,26 @@
   (add-hook 'js-mode-hook 'eglot-ensure)
   (add-hook 'typescript-mode-hook 'eglot-ensure)
   )
+
+(use-package neotree)
+
+(use-package imenu-list
+  :custom
+  (imenu-list-position 'right)
+  (imenu-list-auto-resize nil)
+  )
+
+(use-package minimap
+  :custom
+  (minimap-window-location 'right)
+  (minimap-update-delay 0.2)
+  (minimap-minimum-width 20)
+  )
+
+(defun ide-like()
+  "IDE-like multi columns mode"
+  (interactive)
+
+  (neotree-toggle)
+  (imenu-list-smart-toggle)
+  )
