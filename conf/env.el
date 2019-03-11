@@ -46,13 +46,6 @@
 (custom-set-variables
  '(read-file-name-completion-ignore-case t))
 
-;; truncate-lines
-(setq truncate-lines t)
-(setq truncate-partial-width-windows 0)
-
 ;; word単位をCamelCaseに対応
 (add-hook 'c-mode-common-hook 'subword-mode)
 (add-hook 'js2-mode-hook 'subword-mode)
-
-;; row and column number
-(column-number-mode t)

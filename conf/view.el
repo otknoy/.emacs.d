@@ -62,3 +62,10 @@
   (setq dimmer-fraction 0.3)
   (dimmer-mode t)
   )
+
+;; truncate-lines
+(setq truncate-lines t)
+(setq truncate-partial-width-windows 0)
+
+;; row and column number
+(column-number-mode t)
