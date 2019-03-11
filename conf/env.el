@@ -6,26 +6,6 @@
 (setq dired-default-file-coding-system 'utf-8-unix)
 (prefer-coding-system 'utf-8)
 
-(use-package exec-path-from-shell
-  :config (exec-path-from-shell-initialize))
-
-;;; coding system
-; (set-language-environment "Japanese")
-(setq dired-default-file-coding-system 'utf-8-unix)
-(prefer-coding-system 'utf-8)
-
-;;; other
-(custom-set-variables
- '(read-file-name-completion-ignore-case t))
-
-;; parent-mode
-(setq show-paren-delay 0)
-(show-paren-mode t)
-
-;; truncate-lines
-(setq truncate-lines t)
-(setq truncate-partial-width-windows 0)
-
 ;; backup and auto-save files locate ~/.emacs.d/backups/
 (add-to-list 'backup-directory-alist
 	     (cons "." "~/.emacs.d/backups/"))
@@ -76,4 +56,3 @@
 
 ;; row and column number
 (column-number-mode t)
-
