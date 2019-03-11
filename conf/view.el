@@ -29,15 +29,6 @@
   (set-face-attribute 'default nil
 		      :family "Ricty"
 		      :height 135))
-;; windows
-(when (eq system-type 'windows-nt)
-  (set-face-attribute 'default nil
-		      :family "Ricty Ascii"
-		      :height 130)
-  ;; Japanese font
-  (set-fontset-font
-   nil 'japanese-jisx0208
-   (font-spec :family "Meiryo" :size 13)))
 
 ;; highlight
 ; line
