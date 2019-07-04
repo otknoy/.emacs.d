@@ -1,8 +1,8 @@
-(use-package color-theme
+(use-package color-theme-modern
   :if window-system
-  :config
-  (color-theme-initialize)
-  (color-theme-clarity)
+  :init
+  (load-theme 'clarity t t)
+  (enable-theme 'clarity)
   )
 
 ;;; color setting
