@@ -17,7 +17,7 @@
  ("emacs-python-environment" . "401006584e32864a10c69d29f14414828909362e")
  ("epkgs" . "b077354465f3aa349655c484791dcaf2752971c5")
  ("exec-path-from-shell" . "3cfedb8791397ed50ee66bc0a7cbee5b9d78245c")
- ("flymake" . "a7fa9107c0b3a8f1040ce7dbdaeeea253f223b5d")
+ ("flymake" . "034b64f056317a7728f00a5eca227ea7d265ec91")
  ("gnu-elpa-mirror" . "97763de064765e998a4cf655cbb5a1eb0cdf1d96")
  ("go-mode.el" . "120fb911f1d8038f828da85eed8aaad977dabd8c")
  ("gocode" . "7fb65232883f19a8305706b4b4ff32916ffbcaf5")
