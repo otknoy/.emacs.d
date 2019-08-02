@@ -22,8 +22,7 @@
 (setq straight-use-package-by-default t)
 
 (use-package init-loader)
-(load-file "~/.emacs.d/conf/env.el")
-(load-file "~/.emacs.d/conf/view.el")
+(load-file "~/.emacs.d/conf/setting.el")
 (load-file "~/.emacs.d/conf/util.el")
 (load-file "~/.emacs.d/conf/python.el")
 (load-file "~/.emacs.d/conf/golang.el")
