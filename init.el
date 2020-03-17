@@ -1,9 +1,11 @@
 ;;; https://github.com/raxod502/straight.el
+
 ;; osx setting
 (when (eq system-type 'darwin)
   (with-eval-after-load 'gnutls
     (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem"))
   )
+
 ;; bootstrap
 (defvar bootstrap-version)
 (let ((bootstrap-file
