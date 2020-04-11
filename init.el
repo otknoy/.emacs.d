@@ -30,3 +30,4 @@
 (load-file "~/.emacs.d/conf/golang.el")
 (load-file "~/.emacs.d/conf/web.el")
 (load-file "~/.emacs.d/conf/other.el")
+(load-file "~/.emacs.d/conf/lsp.el")
