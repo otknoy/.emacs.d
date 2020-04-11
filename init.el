@@ -26,7 +26,7 @@
 (use-package init-loader)
 (load-file "~/.emacs.d/conf/setting.el")
 (load-file "~/.emacs.d/conf/util.el")
-(load-file "~/.emacs.d/conf/python.el")
 (load-file "~/.emacs.d/conf/golang.el")
 (load-file "~/.emacs.d/conf/web.el")
 (load-file "~/.emacs.d/conf/other.el")
+(load-file "~/.emacs.d/conf/lsp.el")

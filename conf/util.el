@@ -28,10 +28,3 @@
 (use-package git-gutter
   :config (global-git-gutter-mode t))
 
-(use-package eglot
-  :init
-  (add-hook 'go-mode-hook 'eglot-ensure)
-  (add-hook 'python-mode-hook 'eglot-ensure)
-  (add-hook 'js-mode-hook 'eglot-ensure)
-  (add-hook 'typescript-mode-hook 'eglot-ensure)
-  )
