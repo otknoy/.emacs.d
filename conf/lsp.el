@@ -8,10 +8,9 @@
 	 (js-mode . lsp)
          ;(lsp-mode . lsp-enable-which-key-integration)
 	 )
-  :commands lsp)(use-package lsp-mode
+  :commands lsp
   :init
-  (add-hook 'go-mode-hook #'lsp)
-)
+  (setq lsp-prefer-capf t)
+  )
 
 (use-package lsp-ui :commands lsp-ui-mode)
-(use-package company-lsp :commands company-lsp)
