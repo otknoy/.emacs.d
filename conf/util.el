@@ -7,6 +7,10 @@
   (ahs-set-idle-interval 0.3)
   )
 
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
