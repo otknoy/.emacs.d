@@ -10,6 +10,9 @@
 			:underline t :foreground "green"
 			:weight 'bold)
     )
+
+  :config
+  (setq gofmt-command "goimports")
   )
 
 (use-package company
