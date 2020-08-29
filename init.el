@@ -44,6 +44,9 @@
 
 (leaf system
   :init
+  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+  (setq custom-file (locate-user-emacs-file "custom.el"))
+
   (leaf exec-path-from-shell
     :ensure t
     :config
@@ -151,6 +154,17 @@
              (company-transformers . '(company-sort-by-occurrence)))
     :global-minor-mode global-company-mode)
   (leaf magit :ensure t)
+  (leaf lsp-mode
+    :ensure t
+    :custom ((lsp-prefer-capf . t)
+	     (lsp-keymap-prefix . "C-c l"))
+    :hook ((python-mode-hook . lsp)
+	   (js-mode-hook . lsp))
+    :init
+    (leaf lsp-ui
+      :ensure t
+      :commands lsp-ui-mode)
+    )
   )
 
 (leaf other
