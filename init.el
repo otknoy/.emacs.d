@@ -24,7 +24,7 @@
 (setq straight-use-package-by-default t)
 
 (use-package init-loader)
-(load-file "~/.emacs.d/conf/setting.el")
+; (load-file "~/.emacs.d/conf/setting.el")
 (load-file "~/.emacs.d/conf/util.el")
 (load-file "~/.emacs.d/conf/golang.el")
 (load-file "~/.emacs.d/conf/web.el")
@@ -69,3 +69,73 @@
     :ensure t
     :custom ((imenu-list-size . 30)
              (imenu-list-position . 'left))))
+
+(leaf system
+  :init
+  (leaf exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-initialize))
+  (leaf autorevert
+    :doc "revert buffers when files on disk change"
+    :tag "builtin"
+    :custom ((auto-revert-interval . 0.3)
+             (auto-revert-check-vc-info . t))
+    :global-minor-mode global-auto-revert-mode)
+  (leaf delsel
+    :doc "delete selection if you insert"
+    :tag "builtin"
+    :global-minor-mode delete-selection-mode)
+  (leaf files
+    :doc "file input and output commands for Emacs"
+    :tag "builtin"
+    :custom `((auto-save-timeout . 15)
+              (auto-save-interval . 60)
+              (auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
+              (backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
+                                        (,tramp-file-name-regexp . nil)))
+              (version-control . t)
+              (delete-old-versions . t)))
+  :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
+  :custom ((read-file-name-completion-ignore-case . t))
+  :bind (("C-z" . nil)) ; C-z を無効にする
+  )
+
+(leaf view
+  :init
+  (leaf color-theme-modern
+    :ensure t
+    :if window-system
+    :init
+    (load-theme 'clarity t t)
+    (enable-theme 'clarity))
+
+  (leaf font
+    :init
+    (set-face-attribute 'default nil
+			:family "Ricty"
+			:height 135)
+    (set-fontset-font
+     nil 'japanese-jisx0208
+     (font-spec :family "Ricty")))
+
+  (leaf hidden
+    :init
+    (menu-bar-mode 0)
+    (tool-bar-mode 0))
+  (set-frame-parameter nil 'alpha 90)
+
+  (leaf paren
+    :custom ((show-paren-delay . 0.1))
+    :global-minor-mode show-paren-mode)
+
+  (leaf dimmer
+    :ensure t
+    :custom ((dimmer-fraction . 0.3))
+    :global-minor-mode dimmer-mode)
+
+  :custom ((truncate-lines . t)
+	   (truncated-partial-width-window-p . 0))
+
+  :global-minor-mode column-number-mode
+  )
