@@ -25,7 +25,7 @@
 
 (use-package init-loader)
 ; (load-file "~/.emacs.d/conf/setting.el")
-(load-file "~/.emacs.d/conf/util.el")
+; (load-file "~/.emacs.d/conf/util.el")
 (load-file "~/.emacs.d/conf/golang.el")
 (load-file "~/.emacs.d/conf/web.el")
 ; (load-file "~/.emacs.d/conf/other.el")
@@ -134,12 +134,54 @@
     :custom ((dimmer-fraction . 0.3))
     :global-minor-mode dimmer-mode)
 
+  (leaf auto-highlight-symbol
+    :ensure t
+    :config
+    (ahs-set-idle-interval 0.2)
+    :global-minor-mode global-auto-highlight-symbol-mode)
+
+  (leaf git-gutter
+    :ensure t
+    :global-minor-mode global-git-gutter-mode)
+
   :custom ((truncate-lines . t)
 	   (truncated-partial-width-window-p . 0))
 
-  :global-minor-mode column-number-mode
+  :global-minor-mode column-number-mode global-display-line-numbers-mode
   )
 
+display-line-numbers t
+
+(leaf tool
+  :init
+  (leaf anzu
+    :ensure t
+    :custom (global-anzu-mode . +1))
+  (leaf flycheck
+    :ensure t
+    :bind (("M-n" . flycheck-next-error)
+           ("M-p" . flycheck-previous-error))
+    :global-minor-mode global-flycheck-mode)
+  (leaf company
+    :ensure t
+    :blackout t
+    :leaf-defer nil
+    :bind ((company-active-map
+            ("M-n" . nil)
+            ("M-p" . nil)
+            ("C-s" . company-filter-candidates)
+            ("C-n" . company-select-next)
+            ("C-p" . company-select-previous)
+            ("<tab>" . company-complete-selection))
+           (company-search-map
+            ("C-n" . company-select-next)
+            ("C-p" . company-select-previous)))
+    :custom ((company-idle-delay . 0)
+             (company-minimum-prefix-length . 1)
+             (company-transformers . '(company-sort-by-occurrence)))
+    :global-minor-mode global-company-mode)
+  (leaf magit :ensure t)
+  )
 
 (leaf other
   :init
