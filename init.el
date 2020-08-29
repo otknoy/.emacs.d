@@ -28,7 +28,7 @@
 (load-file "~/.emacs.d/conf/util.el")
 (load-file "~/.emacs.d/conf/golang.el")
 (load-file "~/.emacs.d/conf/web.el")
-(load-file "~/.emacs.d/conf/other.el")
+; (load-file "~/.emacs.d/conf/other.el")
 (load-file "~/.emacs.d/conf/lsp.el")
 
 
@@ -138,4 +138,21 @@
 	   (truncated-partial-width-window-p . 0))
 
   :global-minor-mode column-number-mode
+  )
+
+
+(leaf other
+  :init
+  (leaf eldoc
+    :init
+    (turn-on-eldoc-mode)
+    :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook)
+    :custom ((eldoc-idel-delay . 0.2)
+	     (eldoc-echo-area-use-multiline-p . t)))
+  (leaf markdown-mode
+    :ensure t
+    :custom ((markdown-command . "markdown")))
+  (leaf yaml-mode :ensure t)
+  (leaf dockerfile-mode :ensure t)
+  (leaf docker-compose-mode :ensure t)
   )
