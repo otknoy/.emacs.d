@@ -92,9 +92,11 @@
      (font-spec :family "Ricty")))
 	(leaf window
 		:config
-    (menu-bar-mode 0)
-    (tool-bar-mode 0)
-		(set-frame-parameter nil 'alpha 90))
+		(menu-bar-mode 0)
+		(tool-bar-mode 0)
+		(set-frame-parameter nil 'alpha 90)
+		(set-frame-size (selected-frame) 120 60))
+
   (leaf dimmer
     :ensure t
     :custom ((dimmer-fraction . 0.3))
