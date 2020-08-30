@@ -68,7 +68,7 @@
               (auto-save-interval . 60)
               (auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
               (backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
-                                        (,tramp-file-name-regexp . nil)))
+																					(,tramp-file-name-regexp . nil)))
               (version-control . t)
               (delete-old-versions . t)))
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
@@ -88,8 +88,8 @@
   (leaf font
     :init
     (set-face-attribute 'default nil
-			:family "Ricty"
-			:height 135)
+												:family "Ricty"
+												:height 135)
     (set-fontset-font
      nil 'japanese-jisx0208
      (font-spec :family "Ricty")))
@@ -120,7 +120,8 @@
     :global-minor-mode global-git-gutter-mode)
 
   :custom ((truncate-lines . t)
-	   (truncated-partial-width-window-p . 0))
+					 (truncated-partial-width-window-p . 0)
+					 (tab-width . 2))
 
   :global-minor-mode column-number-mode global-display-line-numbers-mode
   )
@@ -157,13 +158,23 @@
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
-	     (lsp-keymap-prefix . "C-c l"))
+						 (lsp-keymap-prefix . "C-c l"))
     :hook ((python-mode-hook . lsp)
-	   (js-mode-hook . lsp))
+					 (go-mode-hook . lsp)
+					 (js-mode-hook . lsp))
     :init
     (leaf lsp-ui
       :ensure t
       :commands lsp-ui-mode)
+    )
+  )
+
+(leaf lang
+  :init
+  (leaf go-mode
+    :ensure t
+    :custom ((gofmt-command . "goimports"))
+    :hook ((before-save-hook . gofmt-before-save))
     )
   )
 
@@ -174,7 +185,7 @@
     (turn-on-eldoc-mode)
     :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook)
     :custom ((eldoc-idel-delay . 0.2)
-	     (eldoc-echo-area-use-multiline-p . t)))
+						 (eldoc-echo-area-use-multiline-p . t)))
   (leaf markdown-mode
     :ensure t
     :custom ((markdown-command . "markdown")))
