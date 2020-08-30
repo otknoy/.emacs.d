@@ -61,14 +61,14 @@
               (auto-save-interval . 60)
               (auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
               (backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
-																					(,tramp-file-name-regexp . nil)))
+					  (,tramp-file-name-regexp . nil)))
               (version-control . t)
               (delete-old-versions . t)))
-	(leaf mac-osx
-		:if (eq system-type 'darwin)
-		:config ((with-eval-after-load 'gnutls
-							 (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem")))
-		)
+  (leaf mac-osx
+    :if (eq system-type 'darwin)
+    :config ((with-eval-after-load 'gnutls
+	       (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem")))
+    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
@@ -85,17 +85,18 @@
   (leaf font
     :config
     (set-face-attribute 'default nil
-												:family "Ricty"
-												:height 135)
+			:family "Ricty"
+			:height 135)
     (set-fontset-font
      nil 'japanese-jisx0208
      (font-spec :family "Ricty")))
-	(leaf window
-		:config
-		(menu-bar-mode 0)
-		(tool-bar-mode 0)
-		(set-frame-parameter nil 'alpha 90)
-		(set-frame-size (selected-frame) 120 60))
+
+  (leaf window
+    :config
+    (menu-bar-mode 0)
+    (tool-bar-mode 0)
+    (set-frame-parameter nil 'alpha 90)
+    (set-frame-size (selected-frame) 120 60))
 
   (leaf dimmer
     :ensure t
@@ -114,8 +115,8 @@
     :global-minor-mode global-git-gutter-mode)
 
   :custom ((truncate-lines . t)
-					 (truncated-partial-width-window-p . 0)
-					 (tab-width . 2))
+	   (truncated-partial-width-window-p . 0)
+	   )
 
   :global-minor-mode column-number-mode global-display-line-numbers-mode
   )
@@ -152,10 +153,10 @@
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
-						 (lsp-keymap-prefix . "C-c l"))
+	     (lsp-keymap-prefix . "C-c l"))
     :hook ((python-mode-hook . lsp)
-					 (go-mode-hook . lsp)
-					 (js-mode-hook . lsp))
+	   (go-mode-hook . lsp)
+	   (js-mode-hook . lsp))
     :init
     (leaf lsp-ui
       :ensure t
@@ -179,7 +180,7 @@
     (turn-on-eldoc-mode)
     :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook)
     :custom ((eldoc-idel-delay . 0.2)
-						 (eldoc-echo-area-use-multiline-p . t)))
+	     (eldoc-echo-area-use-multiline-p . t)))
   (leaf markdown-mode
     :ensure t
     :custom ((markdown-command . "markdown")))
