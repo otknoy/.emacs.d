@@ -10,17 +10,18 @@
  '(auto-save-timeout 15)
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backup") ("\\`/.+:.*:"))))
  '(delete-old-versions t)
- '(imenu-list-position (quote left) t)
- '(imenu-list-size 30 t)
+ '(imenu-list-position (quote left))
+ '(imenu-list-size 30)
  '(package-archives
-   (quote
-    (("org" . "https://orgmode.org/elpa/")
-     ("melpa" . "https://melpa.org/packages/")
-     ("gnu" . "https://elpa.gnu.org/packages/"))))
+	 (quote
+		(("org" . "https://orgmode.org/elpa/")
+		 ("melpa" . "https://melpa.org/packages/")
+		 ("gnu" . "https://elpa.gnu.org/packages/"))))
  '(package-selected-packages
-   (quote
-    (lsp-ui go-mode magit lsp-mode leaf-tree leaf-convert hydra git-gutter flycheck exec-path-from-shell el-get dockerfile-mode docker-compose-mode dimmer company color-theme-modern blackout auto-highlight-symbol anzu)))
+	 (quote
+		(docker-compose-mode dockerfile-mode yaml-mode go-mode lsp-ui lsp-mode magit company flycheck anzu git-gutter auto-highlight-symbol dimmer color-theme-modern exec-path-from-shell leaf-tree leaf-convert blackout el-get hydra leaf-keywords leaf)))
  '(read-file-name-completion-ignore-case t)
+ '(tab-width 2)
  '(truncate-lines t)
  '(truncated-partial-width-window-p 0 t)
  '(version-control t))
