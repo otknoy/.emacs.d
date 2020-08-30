@@ -1,9 +1,3 @@
-;; osx setting
-(when (eq system-type 'darwin)
-  (with-eval-after-load 'gnutls
-    (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem"))
-  )
-
 ;; <leaf-install-code>
 (eval-and-compile
   (when (or load-file-name byte-compile-current-file)
@@ -46,7 +40,6 @@
   :init
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
   (setq custom-file (locate-user-emacs-file "custom.el"))
-
   (leaf exec-path-from-shell
     :ensure t
     :config
@@ -71,6 +64,11 @@
 																					(,tramp-file-name-regexp . nil)))
               (version-control . t)
               (delete-old-versions . t)))
+	(leaf mac-osx
+		:if (eq system-type 'darwin)
+		:config ((with-eval-after-load 'gnutls
+							 (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem")))
+		)
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
@@ -84,37 +82,31 @@
     :init
     (load-theme 'clarity t t)
     (enable-theme 'clarity))
-
   (leaf font
-    :init
+    :config
     (set-face-attribute 'default nil
 												:family "Ricty"
 												:height 135)
     (set-fontset-font
      nil 'japanese-jisx0208
      (font-spec :family "Ricty")))
-
-  (leaf hidden
-    :init
+	(leaf window
+		:config
     (menu-bar-mode 0)
-    (tool-bar-mode 0))
-  (set-frame-parameter nil 'alpha 90)
-
-  (leaf paren
-    :custom ((show-paren-delay . 0.1))
-    :global-minor-mode show-paren-mode)
-
+    (tool-bar-mode 0)
+		(set-frame-parameter nil 'alpha 90))
   (leaf dimmer
     :ensure t
     :custom ((dimmer-fraction . 0.3))
     :global-minor-mode dimmer-mode)
-
+  (leaf paren
+    :custom ((show-paren-delay . 0.1))
+    :global-minor-mode show-paren-mode)
   (leaf auto-highlight-symbol
     :ensure t
     :config
     (ahs-set-idle-interval 0.2)
     :global-minor-mode global-auto-highlight-symbol-mode)
-
   (leaf git-gutter
     :ensure t
     :global-minor-mode global-git-gutter-mode)
