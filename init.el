@@ -47,8 +47,6 @@
   (leaf autorevert
     :doc "revert buffers when files on disk change"
     :tag "builtin"
-    :custom ((auto-revert-interval . 0.3)
-             (auto-revert-check-vc-info . t))
     :global-minor-mode global-auto-revert-mode)
   (leaf delsel
     :doc "delete selection if you insert"
