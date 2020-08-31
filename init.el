@@ -44,14 +44,14 @@
     :ensure t
     :config
     (exec-path-from-shell-initialize))
-  (leaf autorevert
+  (leaf auto-revert
     :doc "revert buffers when files on disk change"
     :tag "builtin"
     :global-minor-mode global-auto-revert-mode)
-  (leaf delsel
+  (leaf delete-selection
     :doc "delete selection if you insert"
     :tag "builtin"
-    :global-minor-mode delete-selection-mode)
+    :global-minor-mode t)
   (leaf files
     :doc "file input and output commands for Emacs"
     :tag "builtin"
@@ -99,7 +99,7 @@
   (leaf dimmer
     :ensure t
     :custom ((dimmer-fraction . 0.3))
-    :global-minor-mode dimmer-mode)
+    :global-minor-mode t)
   (leaf paren
     :custom ((show-paren-delay . 0.1))
     :global-minor-mode show-paren-mode)
@@ -112,11 +112,12 @@
     :ensure t
     :global-minor-mode global-git-gutter-mode)
 
+  (leaf column-number :global-minor-mode t)
+  (leaf display-line-numbers :global-minor-mode t)
+
   :custom ((truncate-lines . t)
 	   (truncated-partial-width-window-p . 0)
 	   )
-
-  :global-minor-mode column-number-mode global-display-line-numbers-mode
   )
 
 (leaf tool
