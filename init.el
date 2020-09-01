@@ -1,3 +1,11 @@
+;;; init.el --- my init.el
+
+;;; Commentary:
+
+;;; my init.el
+
+;;; Code:
+
 ;; <leaf-install-code>
 (eval-and-compile
   (when (or load-file-name byte-compile-current-file)
@@ -187,3 +195,11 @@
   (leaf dockerfile-mode :ensure t)
   (leaf docker-compose-mode :ensure t)
   )
+
+(provide 'init)
+
+;; Local Variables:
+;; eval: (leaf-tree-mode t)
+;; End:
+
+;;; init.el ends here
