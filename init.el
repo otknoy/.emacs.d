@@ -70,11 +70,6 @@
 					  (,tramp-file-name-regexp . nil)))
               (version-control . t)
               (delete-old-versions . t)))
-  (leaf mac-osx
-    :if (eq system-type 'darwin)
-    :config ((with-eval-after-load 'gnutls
-	       (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem")))
-    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
