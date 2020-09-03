@@ -164,6 +164,22 @@
       :ensure t
       :commands lsp-ui-mode)
     )
+  (leaf ivy
+    :ensure t
+    :global-minor-mode t
+    :config
+    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
+    (leaf swiper
+      :ensure t
+      :bind (("C-s" . swiper)))
+    (leaf counsel
+      :ensure t
+      :global-minor-mode t)
+    )
+  (leaf ivy-rich
+    :ensure t
+    :after ivy
+    :global-minor-mode t)
   )
 
 (leaf lang
