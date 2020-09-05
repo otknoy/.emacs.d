@@ -211,6 +211,7 @@
 
 ;; Local Variables:
 ;; eval: (leaf-tree-mode t)
+;; eval: (display-line-numbers-mode t)
 ;; End:
 
 ;;; init.el ends here
