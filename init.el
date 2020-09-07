@@ -189,6 +189,9 @@
     :custom ((gofmt-command . "goimports"))
     :hook ((before-save-hook . gofmt-before-save))
     )
+  (leaf js-mode
+    :custom ((js-indent-level . 2))
+    )
   )
 
 (leaf other
