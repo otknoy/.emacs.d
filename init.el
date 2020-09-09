@@ -192,6 +192,10 @@
   (leaf js-mode
     :custom ((js-indent-level . 2))
     )
+  (leaf typescript-mode
+    :ensure t
+    :custom ((typescript-indent-level . 2))
+    )
   )
 
 (leaf other
