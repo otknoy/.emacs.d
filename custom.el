@@ -16,7 +16,10 @@
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/"))))
  '(read-file-name-completion-ignore-case t)
- '(safe-local-variable-values (quote ((eval leaf-tree-mode t))))
+ '(safe-local-variable-values
+   (quote
+    ((eval display-line-numbers-mode t)
+     (eval leaf-tree-mode t))))
  '(truncate-lines t)
  '(truncated-partial-width-window-p 0 t)
  '(version-control t))

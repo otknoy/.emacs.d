@@ -188,7 +188,8 @@
   (leaf go-mode
     :ensure t
     :custom ((gofmt-command . "goimports"))
-    :hook ((before-save-hook . gofmt-before-save))
+    :hook ((before-save-hook . gofmt-before-save)
+	   (go-mode-hook . (lambda () (setq tab-width 2))))
     )
   (leaf js-mode
     :custom ((js-indent-level . 2))

@@ -4,6 +4,10 @@
 $ emacs --batch -f batch-byte-compile init.el
 ```
 
+- https://github.com/conao3/leaf.el
+- https://github.com/emacs-lsp/lsp-mode
+
+
 ## LSP
 
 https://github.com/emacs-lsp/lsp-mode
