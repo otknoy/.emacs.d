@@ -116,7 +116,8 @@
     :global-minor-mode global-git-gutter-mode)
 
   (leaf column-number :global-minor-mode t)
-  (leaf display-line-numbers :global-minor-mode t)
+  (leaf display-line-numbers
+    :global-minor-mode global-display-line-numbers-mode)
 
   :custom ((truncate-lines . t)
 	   (truncated-partial-width-window-p . 0)

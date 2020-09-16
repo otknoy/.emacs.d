@@ -8,13 +8,16 @@
  '(auto-save-timeout 15)
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backup") ("\\`/.+:.*:"))))
  '(delete-old-versions t)
- '(imenu-list-position (quote left) t)
- '(imenu-list-size 30 t)
+ '(imenu-list-position (quote left))
+ '(imenu-list-size 30)
  '(package-archives
    (quote
     (("org" . "https://orgmode.org/elpa/")
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/"))))
+ '(package-selected-packages
+   (quote
+    (js2-mode typescript-mode magit lsp-ui leaf-tree leaf-convert ivy-rich hydra go-mode git-gutter flycheck exec-path-from-shell el-get dockerfile-mode docker-compose-mode dimmer counsel company color-theme-modern blackout auto-highlight-symbol anzu)))
  '(read-file-name-completion-ignore-case t)
  '(safe-local-variable-values
    (quote
