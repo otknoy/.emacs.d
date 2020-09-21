@@ -203,12 +203,6 @@
 
 (leaf other
   :init
-  (leaf eldoc
-    :init
-    (turn-on-eldoc-mode)
-    :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook)
-    :custom ((eldoc-idel-delay . 0.2)
-	     (eldoc-echo-area-use-multiline-p . t)))
   (leaf markdown-mode
     :ensure t
     :custom ((markdown-command . "markdown")))
