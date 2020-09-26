@@ -180,6 +180,15 @@
       )
     (leaf counsel
       :ensure t
+      :config
+      (leaf disable-counsel-find-file
+	:config
+	(defun my-disable-counsel-find-file (&rest args)
+	  (let ((completing-read-function #'completing-read-default)
+		(completion-in-region-function #'completion--in-region))
+	    (apply #'read-file-name-default args)))
+	(setq read-file-name-function #'my-disable-counsel-find-file)
+	(define-key counsel-mode-map [remap find-file]  nil))
       :global-minor-mode t)
     )
   (leaf ivy-rich
