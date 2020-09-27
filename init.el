@@ -74,6 +74,18 @@
 					  (,tramp-file-name-regexp . nil)))
               (version-control . t)
               (delete-old-versions . t)))
+  (leaf tramp
+    :config
+    (customize-set-variable
+     'tramp-password-prompt-regexp
+     (concat
+      "^.*"
+      (regexp-opt
+       '("passphrase" "Passphrase"
+	 "password" "Password"
+	 "Verification code")
+       t)
+      ".*:\0? *")))
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
