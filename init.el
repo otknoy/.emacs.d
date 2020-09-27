@@ -85,7 +85,13 @@
 	 "password" "Password"
 	 "Verification code")
        t)
-      ".*:\0? *")))
+      ".*:\0? *"))
+    )
+  (leaf auto-package-update
+    :ensure t
+    :custom ((auto-package-update-prompt-before-update . t))
+    :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now")))
+    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
