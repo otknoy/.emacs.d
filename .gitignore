@@ -1,9 +1,10 @@
 /tramp
 
 /auto-save-list/
-/backups/
+/backup/*
 
-/straight/*
-!/straight/versions/
+/elpa/
+
+.lsp-session-v1
 
 !.gitkeep
