@@ -231,11 +231,14 @@
     )
   (leaf js-mode
     :custom ((js-indent-level . 2))
+    :hook (js-mode-hook . js2-minor-mode)
+    )
+  (leaf js2-mode
+    :ensure t
     )
   (leaf typescript-mode
     :ensure t
-    :custom ((typescript-indent-level . 2))
-    )
+    :custom ((typescript-indent-level . 2)))
   )
 
 (leaf other
