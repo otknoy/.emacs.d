@@ -187,7 +187,7 @@
 	     (lsp-keymap-prefix . "C-c l"))
     :hook ((python-mode-hook . lsp)
 	   (go-mode-hook . lsp)
-	   (js-mode-hook . lsp))
+	   (web-mode-hook . lsp))
     :init
     (leaf lsp-ui
       :ensure t
@@ -229,16 +229,25 @@
     :hook ((before-save-hook . gofmt-before-save)
 	   (go-mode-hook . (lambda () (setq tab-width 2))))
     )
-  (leaf js-mode
-    :custom ((js-indent-level . 2))
-    :hook (js-mode-hook . js2-minor-mode)
-    )
-  (leaf js2-mode
+  (leaf web-mode
     :ensure t
+    :mode
+    "\\.html??\\'"
+    "\\.jsx?\\'"
+    "\\.tsx?\\'"
+    :custom
+    (web-mode-code-indent-offset . 2)
+    (web-mode-css-indent-offset . 2)
+    (web-mode-enable-auto-indentation . t)
+    (web-mode-enable-auto-quoting . nil)
+    (web-mode-enable-current-column-highlight . t)
+    (web-mode-enable-current-element-highlight . t)
+    (web-mode-markup-indent-offset . 2)
+
+    ;; .js を .jsx として開く設定
+    ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて児童で切り替えられるようにしたい
+    (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
     )
-  (leaf typescript-mode
-    :ensure t
-    :custom ((typescript-indent-level . 2)))
   )
 
 (leaf other
