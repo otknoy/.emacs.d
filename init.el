@@ -92,6 +92,14 @@
     :custom ((auto-package-update-prompt-before-update . t))
     :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now")))
     )
+  (leaf macos
+    :config
+    (leaf find-file-default-directory
+      :when (eq system-type 'darwin)
+      :emacs= 27.1
+      :custom ((default-directory . "~")
+	       (command-line-default-directory . "~/")))
+    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
