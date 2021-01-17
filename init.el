@@ -204,6 +204,11 @@
     (leaf lsp-ui
       :ensure t
       :commands lsp-ui-mode)
+    (leaf which-key-integration
+      :init
+      (with-eval-after-load 'lsp-mode
+	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+      )
     )
   (leaf ivy
     :ensure t
