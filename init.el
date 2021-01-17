@@ -100,6 +100,10 @@
       :custom ((default-directory . "~")
 	       (command-line-default-directory . "~/")))
     )
+  (leaf which-key
+    :ensure t
+    :global-minor-mode t
+    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
