@@ -100,6 +100,10 @@
       :custom ((default-directory . "~")
 	       (command-line-default-directory . "~/")))
     )
+  (leaf which-key
+    :ensure t
+    :global-minor-mode t
+    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
@@ -200,6 +204,11 @@
     (leaf lsp-ui
       :ensure t
       :commands lsp-ui-mode)
+    (leaf which-key-integration
+      :init
+      (with-eval-after-load 'lsp-mode
+	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+      )
     )
   (leaf ivy
     :ensure t
