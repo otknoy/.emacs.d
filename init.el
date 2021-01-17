@@ -44,10 +44,6 @@
     :custom ((imenu-list-size . 30)
              (imenu-list-position . 'left))))
 
-(leaf macrostep
-  :ensure t
-  :bind (("C-c e" . macrostep-expand)))
-
 (leaf system
   :init
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -264,6 +260,12 @@
     ;; .js を .jsx として開く設定
     ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて児童で切り替えられるようにしたい
     (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
+    )
+  (leaf elisp
+    :init
+    (leaf macrostep
+      :ensure t
+      :bind (("C-c e" . macrostep-expand)))
     )
   )
 
