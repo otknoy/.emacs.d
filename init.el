@@ -96,10 +96,6 @@
       :custom ((default-directory . "~")
 	       (command-line-default-directory . "~/")))
     )
-  (leaf which-key
-    :ensure t
-    :global-minor-mode t
-    )
   :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
   :custom ((read-file-name-completion-ignore-case . t))
   :bind (("C-z" . nil)) ; C-z を無効にする
@@ -165,6 +161,10 @@
   (leaf anzu
     :ensure t
     :custom (global-anzu-mode . +1))
+  (leaf which-key
+    :ensure t
+    :global-minor-mode t
+    )
   (leaf flycheck
     :ensure t
     :bind (("M-n" . flycheck-next-error)
@@ -234,49 +234,52 @@
     :global-minor-mode t)
   )
 
-(leaf lang
+(leaf modes
   :init
-  (leaf go-mode
-    :ensure t
-    :custom ((gofmt-command . "goimports"))
-    :hook ((before-save-hook . gofmt-before-save)
-	   (go-mode-hook . (lambda () (setq tab-width 2))))
-    )
-  (leaf web-mode
-    :ensure t
-    :mode
-    "\\.html??\\'"
-    "\\.jsx?\\'"
-    "\\.tsx?\\'"
-    :custom
-    (web-mode-code-indent-offset . 2)
-    (web-mode-css-indent-offset . 2)
-    (web-mode-enable-auto-indentation . t)
-    (web-mode-enable-auto-quoting . nil)
-    (web-mode-enable-current-column-highlight . t)
-    (web-mode-enable-current-element-highlight . t)
-    (web-mode-markup-indent-offset . 2)
-
-    ;; .js を .jsx として開く設定
-    ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて児童で切り替えられるようにしたい
-    (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
-    )
-  (leaf elisp
+  (leaf lang
     :init
-    (leaf macrostep
+    (leaf go-mode
       :ensure t
-      :bind (("C-c e" . macrostep-expand)))
-    )
-  )
+      :custom ((gofmt-command . "goimports"))
+      :hook ((before-save-hook . gofmt-before-save)
+	     (go-mode-hook . (lambda () (setq tab-width 2))))
+      )
+    (leaf web-mode
+      :ensure t
+      :mode
+      "\\.html??\\'"
+      "\\.jsx?\\'"
+      "\\.tsx?\\'"
+      :custom
+      (web-mode-code-indent-offset . 2)
+      (web-mode-css-indent-offset . 2)
+      (web-mode-enable-auto-indentation . t)
+      (web-mode-enable-auto-quoting . nil)
+      (web-mode-enable-current-column-highlight . t)
+      (web-mode-enable-current-element-highlight . t)
+      (web-mode-markup-indent-offset . 2)
 
-(leaf other
-  :init
-  (leaf markdown-mode
-    :ensure t
-    :custom ((markdown-command . "markdown")))
-  (leaf yaml-mode :ensure t)
-  (leaf dockerfile-mode :ensure t)
-  (leaf docker-compose-mode :ensure t)
+      ;; .js を .jsx として開く設定
+      ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて児童で切り替えられるようにしたい
+      (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
+      )
+    (leaf elisp
+      :init
+      (leaf macrostep
+	:ensure t
+	:bind (("C-c e" . macrostep-expand)))
+      )
+    )
+
+  (leaf other
+    :init
+    (leaf markdown-mode
+      :ensure t
+      :custom ((markdown-command . "markdown")))
+    (leaf yaml-mode :ensure t)
+    (leaf dockerfile-mode :ensure t)
+    (leaf docker-compose-mode :ensure t)
+    )
   )
 
 (provide 'init)
