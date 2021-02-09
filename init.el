@@ -194,6 +194,11 @@
              (company-transformers . '(company-sort-by-occurrence)))
     :global-minor-mode global-company-mode)
   (leaf magit :ensure t)
+  (leaf google-translate
+    :ensure t
+    :init
+    (leaf popup :ensure t)
+    )
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
