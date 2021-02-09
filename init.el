@@ -192,6 +192,15 @@
       :ensure t
       :blackout t
       :global-minor-mode global-git-gutter-mode))
+  (leaf google-translate
+    :ensure t
+    :init
+    (require 'google-translate-default-ui)
+    :bind (("C-c t" . google-translate-smooth-translate))
+    :config
+    (setq google-translate-translation-directions-alist
+          '(("en" . "ja") ("ja" . "en")))
+    )
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
