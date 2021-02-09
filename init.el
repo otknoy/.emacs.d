@@ -103,6 +103,11 @@
 
 (leaf view
   :init
+  (leaf dashboard
+    :ensure t
+    :init
+    (dashboard-setup-startup-hook)
+    :config (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version)))
   (leaf color-theme-modern
     :ensure t
     :if window-system
