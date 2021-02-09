@@ -260,7 +260,7 @@
       (web-mode-markup-indent-offset . 2)
 
       ;; .js を .jsx として開く設定
-      ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて児童で切り替えられるようにしたい
+      ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて自動で切り替えられるようにしたい
       (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
       )
     (leaf elisp
