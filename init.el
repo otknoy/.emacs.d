@@ -41,6 +41,7 @@
   (leaf leaf-convert :ensure t)
   (leaf leaf-tree
     :ensure t
+    :blackout t
     :custom ((imenu-list-size . 30)
              (imenu-list-position . 'left))))
 
@@ -139,6 +140,7 @@
     :global-minor-mode show-paren-mode)
   (leaf auto-highlight-symbol
     :ensure t
+    :blackout t
     :config
     (ahs-set-idle-interval 0.2)
     :global-minor-mode global-auto-highlight-symbol-mode)
@@ -150,6 +152,7 @@
     :hook (yaml-mode-hook .  highlight-indent-guides-mode))
   (leaf git-gutter
     :ensure t
+    :blackout t
     :global-minor-mode global-git-gutter-mode)
 
   (leaf column-number :global-minor-mode t)
@@ -165,9 +168,11 @@
   :init
   (leaf anzu
     :ensure t
+    :blackout t
     :custom (global-anzu-mode . +1))
   (leaf which-key
     :ensure t
+    :blackout t
     :global-minor-mode t
     )
   (leaf flycheck
@@ -213,6 +218,7 @@
     )
   (leaf ivy
     :ensure t
+    :blackout t
     :global-minor-mode t
     :config
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
@@ -222,6 +228,7 @@
       )
     (leaf counsel
       :ensure t
+      :blackout t
       :config
       (leaf disable-counsel-find-file
 	:config
@@ -235,6 +242,7 @@
     )
   (leaf ivy-rich
     :ensure t
+    :blackout t
     :after ivy
     :global-minor-mode t)
   )
