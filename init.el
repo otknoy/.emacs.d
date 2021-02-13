@@ -150,11 +150,6 @@
 	     (highlight-indent-guides-responsive . t)
 	     (highlight-indent-guides-method . 'column))
     :hook (yaml-mode-hook .  highlight-indent-guides-mode))
-  (leaf git-gutter
-    :ensure t
-    :blackout t
-    :global-minor-mode global-git-gutter-mode)
-
   (leaf column-number :global-minor-mode t)
   (leaf display-line-numbers
     :global-minor-mode global-display-line-numbers-mode)
@@ -198,7 +193,13 @@
              (company-minimum-prefix-length . 1)
              (company-transformers . '(company-sort-by-occurrence)))
     :global-minor-mode global-company-mode)
-  (leaf magit :ensure t)
+  (leaf git
+    :init
+    (leaf magit :ensure t)
+    (leaf git-gutter
+      :ensure t
+      :blackout t
+      :global-minor-mode global-git-gutter-mode))
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
