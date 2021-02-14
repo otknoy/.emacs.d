@@ -6,44 +6,40 @@
 
 ;;; Code:
 
-;; <leaf-install-code>
-(eval-and-compile
-  (when (or load-file-name byte-compile-current-file)
-    (setq user-emacs-directory
-          (expand-file-name
-           (file-name-directory (or load-file-name byte-compile-current-file))))))
+(prog1 "prepare leaf"
+  (prog1 "package"
+    (custom-set-variables
+     '(package-archives '(("org"   . "https://orgmode.org/elpa/")
+                          ("melpa" . "https://melpa.org/packages/")
+                          ("gnu"   . "https://elpa.gnu.org/packages/"))))
+    (package-initialize))
 
-(eval-and-compile
-  (customize-set-variable
-   'package-archives '(("org" . "https://orgmode.org/elpa/")
-                       ("melpa" . "https://melpa.org/packages/")
-                       ("gnu" . "https://elpa.gnu.org/packages/")))
-  (package-initialize)
-  (unless (package-installed-p 'leaf)
-    (package-refresh-contents)
-    (package-install 'leaf))
+  (prog1 "leaf"
+    (unless (package-installed-p 'leaf)
+      (unless (assoc 'leaf package-archive-contents)
+        (package-refresh-contents))
+      (condition-case err
+          (package-install 'leaf)
+        (error
+         (package-refresh-contents)       ; renew local melpa cache if fail
+         (package-install 'leaf))))
 
-  (leaf leaf-keywords
-    :ensure t
-    :init
-    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
-    (leaf hydra :ensure t)
-    (leaf el-get :ensure t)
-    (leaf blackout :ensure t)
-
-    :config
-    ;; initialize leaf-keywords.el
-    (leaf-keywords-init)))
-;; </leaf-install-code>
-
-(leaf leaf
-  :config
-  (leaf leaf-convert :ensure t)
-  (leaf leaf-tree
-    :ensure t
-    :blackout t
-    :custom ((imenu-list-size . 30)
-             (imenu-list-position . 'left))))
+    (leaf leaf
+      :config
+      (leaf leaf-keywords
+	:ensure t
+	:init
+	(leaf hydra :ensure t)
+	(leaf el-get :ensure t
+	  :custom ((el-get-git-shallow-clone  . t)))
+	(leaf blackout :ensure t)
+	:config (leaf-keywords-init))
+      (leaf leaf-convert :ensure t)
+      (leaf leaf-tree
+	:ensure t
+	:blackout t
+	:custom ((imenu-list-size . 30)
+		 (imenu-list-position . 'left))))))
 
 (leaf system
   :init
@@ -53,24 +49,29 @@
     :ensure t
     :config
     (exec-path-from-shell-initialize))
-  (leaf auto-revert
-    :doc "revert buffers when files on disk change"
-    :tag "builtin"
-    :global-minor-mode global-auto-revert-mode)
   (leaf delete-selection
-    :doc "delete selection if you insert"
-    :tag "builtin"
     :global-minor-mode t)
-  (leaf files
-    :doc "file input and output commands for Emacs"
-    :tag "builtin"
-    :custom `((auto-save-timeout . 15)
-              (auto-save-interval . 60)
-              (auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
-              (backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
-					  (,tramp-file-name-regexp . nil)))
-              (version-control . t)
-              (delete-old-versions . t)))
+  (leaf file
+    :config
+    (leaf auto-revert
+      :global-minor-mode global-auto-revert-mode)
+    (leaf files
+      :custom `((auto-save-timeout . 15)
+		(auto-save-interval . 60)
+		(auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
+		(backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
+					    (,tramp-file-name-regexp . nil)))
+		(version-control . t)
+		(delete-old-versions . t)))
+    (leaf filename-completion
+      :custom ((read-file-name-completion-ignore-case . t)))
+    (leaf script-executable
+      :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p))
+    (leaf find-file-default-directory
+      :when (eq system-type 'darwin)
+      :emacs= 27.1
+      :custom ((default-directory . "~")
+	       (command-line-default-directory . "~/"))))
   (leaf tramp
     :config
     (customize-set-variable
@@ -82,24 +83,13 @@
 	 "password" "Password"
 	 "Verification code")
        t)
-      ".*:\0? *"))
-    )
+      ".*:\0? *")))
   (leaf auto-package-update
     :ensure t
     :custom ((auto-package-update-prompt-before-update . t))
-    :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now")))
-    )
-  (leaf macos
-    :config
-    (leaf find-file-default-directory
-      :when (eq system-type 'darwin)
-      :emacs= 27.1
-      :custom ((default-directory . "~")
-	       (command-line-default-directory . "~/")))
-    )
-  :hook (after-save-hook . executable-make-buffer-file-executable-if-script-p)
-  :custom ((read-file-name-completion-ignore-case . t))
-  :bind (("C-z" . nil)) ; C-z を無効にする
+    :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now"))))
+  (leaf key
+    :bind (("C-z" . nil))) ; C-z を無効にする
   )
 
 (leaf view
