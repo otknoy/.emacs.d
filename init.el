@@ -200,7 +200,12 @@
     :init
     (leaf lsp-ui
       :ensure t
-      :commands lsp-ui-mode)
+      :commands lsp-ui-mode
+      :config
+      (lsp-ui-peek-enable t)
+      (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+      (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+      )
     (leaf which-key-integration
       :init
       (with-eval-after-load 'lsp-mode
