@@ -98,7 +98,16 @@
     :ensure t
     :init
     (dashboard-setup-startup-hook)
-    :config (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version)))
+    :config
+    (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version))
+    (setq dashboard-items '((recents  . 20)
+                            (bookmarks . 5)
+                            (projects . 5)
+                            (agenda . 5)
+                            (registers . 5)))
+    (leaf projectile
+      :ensure t
+      :global-minor-mode t))
   (leaf color-theme-modern
     :ensure t
     :if window-system
