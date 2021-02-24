@@ -128,7 +128,7 @@
     (menu-bar-mode 0)
     (tool-bar-mode 0)
     (set-frame-parameter nil 'alpha 90)
-    (set-frame-size (selected-frame) 120 60))
+    (set-frame-size (selected-frame) 180 80))
 
   (leaf dimmer
     :ensure t
