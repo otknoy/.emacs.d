@@ -145,7 +145,8 @@
     :global-minor-mode global-auto-highlight-symbol-mode)
   (leaf highlight-indent-guides
     :ensure t
-    :custom ((highlight-indent-guides-auto-enabled . nil)
+    :blackout t
+    :custom ((highlight-indent-guides-auto-enabled . t)
 	     (highlight-indent-guides-responsive . t)
 	     (highlight-indent-guides-method . 'column))
     :hook (yaml-mode-hook .  highlight-indent-guides-mode))
