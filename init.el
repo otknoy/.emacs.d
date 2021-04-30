@@ -129,6 +129,13 @@
     (tool-bar-mode 0)
     (set-frame-parameter nil 'alpha 90)
     (set-frame-size (selected-frame) 180 80))
+    (leaf private-macbook
+      :if
+      (eq system-type 'darwin)
+      (string= (system-name) "MacBook-3.local")
+      :config
+      (set-frame-size (selected-frame) 120 60))
+    )
 
   (leaf dimmer
     :ensure t
