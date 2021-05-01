@@ -238,7 +238,7 @@
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
     (leaf swiper
       :ensure t
-      ; :bind (("C-s" . swiper))
+      ;; :bind (("C-s" . swiper))
       )
     (leaf counsel
       :ensure t
