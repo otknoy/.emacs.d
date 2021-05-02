@@ -43,8 +43,6 @@
 
 (leaf system
   :init
-  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-  (setq custom-file (locate-user-emacs-file "custom.el"))
   (leaf exec-path-from-shell
     :ensure t
     :config
@@ -88,8 +86,12 @@
     :ensure t
     :custom ((auto-package-update-prompt-before-update . t))
     :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now"))))
-  (leaf key
-    :bind (("C-z" . nil))) ; C-z を無効にする
+  (leaf key-disable
+    :bind (("C-z" . nil)))
+  (leaf other
+    :init
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+    (setq custom-file (locate-user-emacs-file "custom.el")))
   )
 
 (leaf view
