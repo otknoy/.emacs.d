@@ -42,9 +42,7 @@
 		 (imenu-list-position . 'left))))))
 
 (leaf system
-  :init
-  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-  (setq custom-file (locate-user-emacs-file "custom.el"))
+  :config
   (leaf exec-path-from-shell
     :ensure t
     :config
@@ -88,17 +86,20 @@
     :ensure t
     :custom ((auto-package-update-prompt-before-update . t))
     :hook (auto-package-update-before-hook . (lambda () (message "I will update packages now"))))
-  (leaf key
-    :bind (("C-z" . nil))) ; C-z を無効にする
+  (leaf key-disable
+    :bind (("C-z" . nil)))
+  (leaf other
+    :config
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+    (setq custom-file (locate-user-emacs-file "custom.el")))
   )
 
 (leaf view
-  :init
+  :config
   (leaf dashboard
     :ensure t
-    :init
-    (dashboard-setup-startup-hook)
     :config
+    (dashboard-setup-startup-hook)
     (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version))
     (setq dashboard-items '((recents  . 20)
                             (bookmarks . 5)
@@ -111,7 +112,7 @@
   (leaf color-theme-modern
     :ensure t
     :if window-system
-    :init
+    :config
     (load-theme 'clarity t t)
     (enable-theme 'clarity))
   (leaf font
@@ -167,7 +168,7 @@
   )
 
 (leaf tool
-  :init
+  :config
   (leaf anzu
     :ensure t
     :blackout t
@@ -201,7 +202,7 @@
              (company-transformers . '(company-sort-by-occurrence)))
     :global-minor-mode global-company-mode)
   (leaf git
-    :init
+    :config
     (leaf magit :ensure t)
     (leaf git-gutter
       :ensure t
@@ -214,7 +215,7 @@
     :hook ((python-mode-hook . lsp)
 	   (go-mode-hook . lsp)
 	   (web-mode-hook . lsp))
-    :init
+    :config
     (leaf lsp-ui
       :ensure t
       :commands lsp-ui-mode
@@ -225,7 +226,7 @@
       (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
       )
     (leaf which-key-integration
-      :init
+      :config
       (with-eval-after-load 'lsp-mode
 	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
       )
@@ -238,7 +239,7 @@
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
     (leaf swiper
       :ensure t
-      ; :bind (("C-s" . swiper))
+      ;; :bind (("C-s" . swiper))
       )
     (leaf counsel
       :ensure t
@@ -262,9 +263,9 @@
   )
 
 (leaf modes
-  :init
+  :config
   (leaf lang
-    :init
+    :config
     (leaf go-mode
       :ensure t
       :custom ((gofmt-command . "goimports"))
@@ -291,7 +292,7 @@
       (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
       )
     (leaf elisp
-      :init
+      :config
       (leaf macrostep
 	:ensure t
 	:bind (("C-c e" . macrostep-expand)))
@@ -299,7 +300,7 @@
     )
 
   (leaf other
-    :init
+    :config
     (leaf markdown-mode
       :ensure t
       :custom ((markdown-command . "markdown")))
