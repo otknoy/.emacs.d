@@ -96,19 +96,6 @@
 
 (leaf view
   :config
-  (leaf dashboard
-    :ensure t
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version))
-    (setq dashboard-items '((recents  . 20)
-                            (bookmarks . 5)
-                            (projects . 20)
-                            (agenda . 5)
-                            (registers . 5)))
-    (leaf projectile
-      :ensure t
-      :global-minor-mode t))
   (leaf color-theme-modern
     :ensure t
     :if window-system
@@ -260,6 +247,19 @@
     :blackout t
     :after ivy
     :global-minor-mode t)
+  (leaf dashboard
+    :ensure t
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-banner-logo-title (concat "GNU Emacs " emacs-version))
+    (setq dashboard-items '((recents  . 20)
+                            (bookmarks . 5)
+                            (projects . 20)
+                            (agenda . 5)
+                            (registers . 5)))
+    (leaf projectile
+      :ensure t
+      :global-minor-mode t))
   )
 
 (leaf modes
