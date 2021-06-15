@@ -218,35 +218,27 @@
 	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
       )
     )
-  (leaf ivy
-    :ensure t
-    :blackout t
-    :global-minor-mode t
+  (leaf mini-buffer-completion
     :config
-    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
-    (leaf swiper
+    (leaf vertico
       :ensure t
-      ;; :bind (("C-s" . swiper))
+      :global-minor-mode t
+      :custom (vertico-count . 20)
       )
-    (leaf counsel
+    (leaf marginalia
       :ensure t
-      :blackout t
+      :global-minor-mode t
+      )
+    (leaf consult
+      :ensure t
+      )
+    (leaf orderless
+      :ensure t
       :config
-      (leaf disable-counsel-find-file
-	:config
-	(defun my-disable-counsel-find-file (&rest args)
-	  (let ((completing-read-function #'completing-read-default)
-		(completion-in-region-function #'completion--in-region))
-	    (apply #'read-file-name-default args)))
-	(setq read-file-name-function #'my-disable-counsel-find-file)
-	(define-key counsel-mode-map [remap find-file]  nil))
-      :global-minor-mode t)
+      (with-eval-after-load 'orderless
+	(setq completion-styles '(orderless)))
+      )
     )
-  (leaf ivy-rich
-    :ensure t
-    :blackout t
-    :after ivy
-    :global-minor-mode t)
   (leaf dashboard
     :ensure t
     :config
