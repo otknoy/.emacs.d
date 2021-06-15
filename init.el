@@ -218,22 +218,26 @@
 	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
       )
     )
-  (leaf vertico
-    :ensure t
-    :global-minor-mode t
-    )
-  (leaf marginalia
-    :ensure t
-    :global-minor-mode t
-    )
-  (leaf consult
-    :ensure t
-    )
-  (leaf orderless
-    :ensure t
+  (leaf mini-buffer-completion
     :config
-    (with-eval-after-load 'orderless
-      (setq completion-styles '(orderless)))
+    (leaf vertico
+      :ensure t
+      :global-minor-mode t
+      :custom (vertico-count . 20)
+      )
+    (leaf marginalia
+      :ensure t
+      :global-minor-mode t
+      )
+    (leaf consult
+      :ensure t
+      )
+    (leaf orderless
+      :ensure t
+      :config
+      (with-eval-after-load 'orderless
+	(setq completion-styles '(orderless)))
+      )
     )
 
   ;; (leaf ivy
