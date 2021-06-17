@@ -234,9 +234,7 @@
       )
     (leaf orderless
       :ensure t
-      :config
-      (with-eval-after-load 'orderless
-	(setq completion-styles '(orderless)))
+      :custom ((completion-styles . '(orderless)))
       )
     )
   (leaf dashboard
