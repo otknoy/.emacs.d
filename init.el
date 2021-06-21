@@ -27,19 +27,19 @@
     (leaf leaf
       :config
       (leaf leaf-keywords
-	:ensure t
-	:init
-	(leaf hydra :ensure t)
-	(leaf el-get :ensure t
-	  :custom ((el-get-git-shallow-clone  . t)))
-	(leaf blackout :ensure t)
-	:config (leaf-keywords-init))
+        :ensure t
+        :init
+        (leaf hydra :ensure t)
+        (leaf el-get :ensure t
+          :custom ((el-get-git-shallow-clone  . t)))
+        (leaf blackout :ensure t)
+        :config (leaf-keywords-init))
       (leaf leaf-convert :ensure t)
       (leaf leaf-tree
-	:ensure t
-	:blackout t
-	:custom ((imenu-list-size . 30)
-		 (imenu-list-position . 'left))))))
+        :ensure t
+        :blackout t
+        :custom ((imenu-list-size . 30)
+                 (imenu-list-position . 'left))))))
 
 (leaf system
   :config
@@ -55,12 +55,12 @@
       :global-minor-mode global-auto-revert-mode)
     (leaf files
       :custom `((auto-save-timeout . 15)
-		(auto-save-interval . 60)
-		(auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
-		(backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
-					    (,tramp-file-name-regexp . nil)))
-		(version-control . t)
-		(delete-old-versions . t)))
+                (auto-save-interval . 60)
+                (auto-save-file-name-transforms . '((".*" ,(locate-user-emacs-file "backup/") t)))
+                (backup-directory-alist . '((".*" . ,(locate-user-emacs-file "backup"))
+                                            (,tramp-file-name-regexp . nil)))
+                (version-control . t)
+                (delete-old-versions . t)))
     (leaf filename-completion
       :custom ((read-file-name-completion-ignore-case . t)))
     (leaf script-executable
@@ -69,7 +69,7 @@
       :when (eq system-type 'darwin)
       :emacs= 27.1
       :custom ((default-directory . "~")
-	       (command-line-default-directory . "~/"))))
+               (command-line-default-directory . "~/"))))
   (leaf tramp
     :config
     (customize-set-variable
@@ -78,8 +78,8 @@
       "^.*"
       (regexp-opt
        '("passphrase" "Passphrase"
-	 "password" "Password"
-	 "Verification code")
+         "password" "Password"
+         "Verification code")
        t)
       ".*:\0? *")))
   (leaf auto-package-update
@@ -105,8 +105,8 @@
   (leaf font
     :config
     (set-face-attribute 'default nil
-			:family "Ricty"
-			:height 135)
+                        :family "Ricty"
+                        :height 135)
     (set-fontset-font
      nil 'japanese-jisx0208
      (font-spec :family "Ricty")))
@@ -142,16 +142,16 @@
     :ensure t
     :blackout t
     :custom ((highlight-indent-guides-auto-enabled . t)
-	     (highlight-indent-guides-responsive . t)
-	     (highlight-indent-guides-method . 'column))
+             (highlight-indent-guides-responsive . t)
+             (highlight-indent-guides-method . 'column))
     :hook (yaml-mode-hook .  highlight-indent-guides-mode))
   (leaf column-number :global-minor-mode t)
   (leaf display-line-numbers
     :global-minor-mode global-display-line-numbers-mode)
 
   :custom ((truncate-lines . t)
-	   (truncated-partial-width-window-p . 0)
-	   )
+           (truncated-partial-width-window-p . 0)
+           )
   )
 
 (leaf tool
@@ -198,10 +198,10 @@
   (leaf lsp-mode
     :ensure t
     :custom ((lsp-prefer-capf . t)
-	     (lsp-keymap-prefix . "C-c l"))
+             (lsp-keymap-prefix . "C-c l"))
     :hook ((python-mode-hook . lsp)
-	   (go-mode-hook . lsp)
-	   (web-mode-hook . lsp))
+           (go-mode-hook . lsp)
+           (web-mode-hook . lsp))
     :config
     (leaf lsp-ui
       :ensure t
@@ -215,7 +215,7 @@
     (leaf which-key-integration
       :config
       (with-eval-after-load 'lsp-mode
-	(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+        (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
       )
     )
   (leaf mini-buffer-completion
@@ -260,7 +260,7 @@
       :ensure t
       :custom ((gofmt-command . "goimports"))
       :hook ((before-save-hook . gofmt-before-save)
-	     (go-mode-hook . (lambda () (setq tab-width 2))))
+             (go-mode-hook . (lambda () (setq tab-width 2))))
       )
     (leaf web-mode
       :ensure t
@@ -284,8 +284,8 @@
     (leaf elisp
       :config
       (leaf macrostep
-	:ensure t
-	:bind (("C-c e" . macrostep-expand)))
+        :ensure t
+        :bind (("C-c e" . macrostep-expand)))
       )
     )
 
@@ -303,6 +303,7 @@
 (provide 'init)
 
 ;; Local Variables:
+;; indent-tabs-mode: nil
 ;; eval: (leaf-tree-mode t)
 ;; End:
 
