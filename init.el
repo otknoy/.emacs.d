@@ -96,8 +96,18 @@
 
 (leaf view
   :config
+  (leaf modus-themes
+    :ensure t
+    :init
+    (setq modus-themes-italic-constructs t
+          modus-themes-bold-constructs nil
+          modus-themes-region '(bg-only no-extend))
+    (modus-themes-load-themes)
+    (modus-themes-load-vivendi)
+    )
   (leaf color-theme-modern
     :ensure t
+    :disabled t
     :if window-system
     :config
     (load-theme 'clarity t t)
