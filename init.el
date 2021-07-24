@@ -105,13 +105,6 @@
     (modus-themes-load-themes)
     (modus-themes-load-vivendi)
     )
-  (leaf color-theme-modern
-    :ensure t
-    :disabled t
-    :if window-system
-    :config
-    (load-theme 'clarity t t)
-    (enable-theme 'clarity))
   (leaf font
     :config
     (set-face-attribute 'default nil
