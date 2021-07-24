@@ -96,12 +96,15 @@
 
 (leaf view
   :config
-  (leaf color-theme-modern
+  (leaf modus-themes
     :ensure t
-    :if window-system
-    :config
-    (load-theme 'clarity t t)
-    (enable-theme 'clarity))
+    :init
+    (setq modus-themes-italic-constructs t
+          modus-themes-bold-constructs nil
+          modus-themes-region '(bg-only no-extend))
+    (modus-themes-load-themes)
+    (modus-themes-load-vivendi)
+    )
   (leaf font
     :config
     (set-face-attribute 'default nil
