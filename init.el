@@ -47,8 +47,7 @@
     :ensure t
     :config
     (exec-path-from-shell-initialize))
-  (leaf delete-selection
-    :global-minor-mode t)
+  (leaf delete-selection :global-minor-mode t)
   (leaf file
     :config
     (leaf auto-revert
