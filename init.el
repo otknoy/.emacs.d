@@ -22,24 +22,24 @@
           (package-install 'leaf)
         (error
          (package-refresh-contents)       ; renew local melpa cache if fail
-         (package-install 'leaf))))
+         (package-install 'leaf))))))
 
-    (leaf leaf
-      :config
-      (leaf leaf-keywords
-        :ensure t
-        :init
-        (leaf hydra :ensure t)
-        (leaf el-get :ensure t
-          :custom ((el-get-git-shallow-clone  . t)))
-        (leaf blackout :ensure t)
-        :config (leaf-keywords-init))
-      (leaf leaf-convert :ensure t)
-      (leaf leaf-tree
-        :ensure t
-        :blackout t
-        :custom ((imenu-list-size . 30)
-                 (imenu-list-position . 'left))))))
+(leaf leaf
+  :config
+  (leaf leaf-keywords
+    :ensure t
+    :init
+    (leaf hydra :ensure t)
+    (leaf el-get :ensure t
+      :custom ((el-get-git-shallow-clone  . t)))
+    (leaf blackout :ensure t)
+    :config (leaf-keywords-init))
+  (leaf leaf-convert :ensure t)
+  (leaf leaf-tree
+    :ensure t
+    :blackout t
+    :custom ((imenu-list-size . 30)
+             (imenu-list-position . 'left))))
 
 (leaf system
   :config
