@@ -13,7 +13,6 @@
                           ("melpa" . "https://melpa.org/packages/")
                           ("gnu"   . "https://elpa.gnu.org/packages/"))))
     (package-initialize))
-
   (prog1 "leaf"
     (unless (package-installed-p 'leaf)
       (unless (assoc 'leaf package-archive-contents)
@@ -102,8 +101,7 @@
           modus-themes-bold-constructs nil
           modus-themes-region '(bg-only no-extend))
     (modus-themes-load-themes)
-    (modus-themes-load-vivendi)
-    )
+    (modus-themes-load-vivendi))
   (leaf font
     :config
     (set-face-attribute 'default nil
@@ -112,7 +110,6 @@
     (set-fontset-font
      nil 'japanese-jisx0208
      (font-spec :family "Ricty")))
-
   (leaf window
     :config
     (menu-bar-mode 0)
@@ -124,9 +121,7 @@
       (eq system-type 'darwin)
       (string= (system-name) "MacBook-3.local")
       :config
-      (set-frame-size (selected-frame) 120 60))
-    )
-
+      (set-frame-size (selected-frame) 120 60)))
   (leaf dimmer
     :ensure t
     :custom ((dimmer-fraction . 0.3))
@@ -150,10 +145,8 @@
   (leaf column-number :global-minor-mode t)
   (leaf display-line-numbers
     :global-minor-mode global-display-line-numbers-mode)
-
   :custom ((truncate-lines . t)
-           (truncated-partial-width-window-p . 0)
-           )
+           (truncated-partial-width-window-p . 0))
   )
 
 (leaf tool
@@ -165,8 +158,7 @@
   (leaf which-key
     :ensure t
     :blackout t
-    :global-minor-mode t
-    )
+    :global-minor-mode t)
   (leaf flycheck
     :ensure t
     :bind (("M-n" . flycheck-next-error)
@@ -212,32 +204,25 @@
       (lsp-ui-peek-enable . t)
       :config
       (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-      (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-      )
+      (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
     (leaf which-key-integration
       :config
       (with-eval-after-load 'lsp-mode
-        (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
-      )
+        (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)))
     )
   (leaf mini-buffer-completion
     :config
     (leaf vertico
       :ensure t
       :global-minor-mode t
-      :custom (vertico-count . 20)
-      )
+      :custom (vertico-count . 20))
     (leaf marginalia
       :ensure t
-      :global-minor-mode t
-      )
-    (leaf consult
-      :ensure t
-      )
+      :global-minor-mode t)
+    (leaf consult :ensure t)
     (leaf orderless
       :ensure t
-      :custom ((completion-styles . '(orderless)))
-      )
+      :custom ((completion-styles . '(orderless))))
     )
   (leaf dashboard
     :ensure t
@@ -262,8 +247,7 @@
       :ensure t
       :custom ((gofmt-command . "goimports"))
       :hook ((before-save-hook . gofmt-before-save)
-             (go-mode-hook . (lambda () (setq tab-width 2))))
-      )
+             (go-mode-hook . (lambda () (setq tab-width 2)))))
     (leaf web-mode
       :ensure t
       :mode
@@ -281,16 +265,13 @@
 
       ;; .js を .jsx として開く設定
       ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて自動で切り替えられるようにしたい
-      (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'")))
-      )
+      (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'"))))
     (leaf elisp
       :config
       (leaf macrostep
         :ensure t
-        :bind (("C-c e" . macrostep-expand)))
-      )
+        :bind (("C-c e" . macrostep-expand))))
     )
-
   (leaf other
     :config
     (leaf markdown-mode
@@ -298,8 +279,7 @@
       :custom ((markdown-command . "markdown")))
     (leaf yaml-mode :ensure t)
     (leaf dockerfile-mode :ensure t)
-    (leaf docker-compose-mode :ensure t)
-    )
+    (leaf docker-compose-mode :ensure t))
   )
 
 (provide 'init)
