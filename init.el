@@ -193,6 +193,7 @@
     :ensure t
     :custom ((lsp-prefer-capf . t)
              (lsp-keymap-prefix . "C-c l"))
+    :setq `((gc-cons-threshold . ,(* 512 1024 1024)))
     :hook ((python-mode-hook . lsp)
            (go-mode-hook . lsp)
            (web-mode-hook . lsp))
