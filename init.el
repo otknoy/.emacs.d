@@ -254,7 +254,6 @@
       :mode
       "\\.html??\\'"
       "\\.jsx?\\'"
-      "\\.tsx?\\'"
       :custom
       (web-mode-code-indent-offset . 2)
       (web-mode-css-indent-offset . 2)
@@ -267,6 +266,12 @@
       ;; .js を .jsx として開く設定
       ;; TODO: 普通の js も jsx として開いてしまうのでstring:react とかを調べて自動で切り替えられるようにしたい
       (web-mode-content-types-alist . '(("jsx" . "\.jsx?\\'"))))
+    (leaf typescript-mode
+      :ensure t
+      :mode
+      "\\.tsx\\'"
+      :config
+			(setq typescript-indent-level 2))
     (leaf elisp
       :config
       (leaf macrostep
