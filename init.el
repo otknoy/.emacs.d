@@ -182,6 +182,9 @@
              (company-minimum-prefix-length . 1)
              (company-transformers . '(company-sort-by-occurrence)))
     :global-minor-mode global-company-mode)
+  (leaf prettier-js
+    :ensure t
+    :hook (web-mode-hook .  prettier-js-mode))
   (leaf git
     :config
     (leaf magit :ensure t)
