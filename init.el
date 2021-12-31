@@ -194,8 +194,8 @@
       :global-minor-mode global-git-gutter-mode))
   (leaf google-translate
     :ensure t
-    :init
-    (require 'google-translate-default-ui)
+    :init (leaf popup :ensure t)
+    :require 'google-translate-default-ui
     :bind (("C-c t" . google-translate-smooth-translate))
     :config
     (setq google-translate-translation-directions-alist
