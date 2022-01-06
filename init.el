@@ -194,7 +194,12 @@
       :global-minor-mode global-git-gutter-mode))
   (leaf google-translate
     :ensure t
-    :init (leaf popup :ensure t)
+    :init
+    (leaf popup :ensure t)
+    ;; fix search fail ',ttk'
+    ;; (see https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888)
+    (with-eval-after-load 'google-translate-tk
+      (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130)))
     :require 'google-translate-default-ui
     :bind (("C-c t" . google-translate-smooth-translate))
     :config
