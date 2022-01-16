@@ -200,11 +200,10 @@
     ;; (see https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888)
     (with-eval-after-load 'google-translate-tk
       (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130)))
-    :require 'google-translate-default-ui
+    :require 'google-translate-smooth-ui
     :bind (("C-c t" . google-translate-smooth-translate))
-    :config
-    (setq google-translate-translation-directions-alist
-          '(("en" . "ja") ("ja" . "en")))
+    :custom
+    (google-translate-translation-directions-alist . '(("en" . "ja") ("ja" . "en")))
     )
   (leaf lsp-mode
     :ensure t
