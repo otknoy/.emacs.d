@@ -116,6 +116,12 @@
     (tool-bar-mode 0)
     (set-frame-parameter nil 'alpha 90)
     (set-frame-size (selected-frame) 180 80)
+    (leaf private-desktop
+      :if
+      (eq system-type 'gnu/linux)
+      (string= (system-name) "debian")
+      :config
+      (set-frame-position nil 1900 250))
     (leaf private-macbook
       :if
       (eq system-type 'darwin)
