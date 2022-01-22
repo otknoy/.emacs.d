@@ -127,7 +127,8 @@
       (eq system-type 'darwin)
       (string= (system-name) "MacBook-3.local")
       :config
-      (set-frame-size (selected-frame) 120 60)))
+      (set-frame-size (selected-frame) 120 60)
+      (set-frame-position nil 564 25)))
   (leaf dimmer
     :ensure t
     :custom ((dimmer-fraction . 0.3))
