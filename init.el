@@ -28,7 +28,7 @@
 
     :config
     ;; initialize leaf-keywords.el
-    (leaf-keywords-init))
+    (leaf-keywords-init)))
 ;; </leaf-install-code>
 
 (leaf leaf
