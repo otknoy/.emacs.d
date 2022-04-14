@@ -270,7 +270,13 @@
       :ensure t
       :custom ((gofmt-command . "goimports"))
       :hook ((before-save-hook . gofmt-before-save)
-             (go-mode-hook . (lambda () (setq tab-width 2)))))
+             (go-mode-hook . (lambda () (setq tab-width 2))))
+      :config
+      (leaf gotests
+        :el-get damienlevin/GoTests-Emacs
+        :require t
+        )
+      )
     (leaf web-mode
       :ensure t
       :mode
