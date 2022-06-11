@@ -283,6 +283,9 @@
         :el-get damienlevin/GoTests-Emacs
         :require t
         )
+      (leaf flycheck-golangci-lint
+                   :ensure t
+                   :hook (go-mode . flycheck-golangci-lint-setup))
       )
     (leaf web-mode
       :ensure t
