@@ -120,7 +120,7 @@
       (eq system-type 'gnu/linux)
       (string= (system-name) "debian")
       :config
-      (set-frame-position nil 1900 250))
+      (set-frame-position nil 2150 590))
     (leaf private-macbook
       :if
       (eq system-type 'darwin)
