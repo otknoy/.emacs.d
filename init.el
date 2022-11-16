@@ -147,7 +147,7 @@
     :custom ((highlight-indent-guides-auto-enabled . t)
              (highlight-indent-guides-responsive . t)
              (highlight-indent-guides-method . 'column))
-    :hook (yaml-mode-hook .  highlight-indent-guides-mode))
+    :hook js-mode-hook yaml-mode-hook)
   (leaf column-number :global-minor-mode t)
   (leaf display-line-numbers
     :global-minor-mode global-display-line-numbers-mode)
