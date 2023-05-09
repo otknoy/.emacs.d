@@ -268,7 +268,7 @@
     :config
     (leaf go-mode
       :ensure t
-      :custom ((gofmt-command . "goimports"))
+      :custom ((gofmt-command . "gosimports"))
       :hook ((before-save-hook . gofmt-before-save)
              (go-mode-hook . (lambda () (setq tab-width 2))))
       :config
