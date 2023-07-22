@@ -124,7 +124,7 @@
     (leaf private-macbook
       :if
       (eq system-type 'darwin)
-      (string= (system-name) "MacBook-3.local")
+      (string= (system-name) "MacBook.local")
       :config
       (set-frame-size (selected-frame) 120 60)
       (set-frame-position nil 564 25)))
