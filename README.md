@@ -12,9 +12,10 @@ $ emacs --batch -f batch-byte-compile init.el
 
 https://github.com/emacs-lsp/lsp-mode
 
-- [Python (Palantir)](https://emacs-lsp.github.io/lsp-mode/page/lsp-pyls/)
 - [Go (gopls)](https://emacs-lsp.github.io/lsp-mode/page/lsp-gopls/)
-- [JavaScript/TypeScript (sourcegraph)](https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript-javascript/)
+- [Python](https://emacs-lsp.github.io/lsp-mode/page/lsp-pyls/)
+- [JavaScript/TypeScript (RECOMMENDED)](https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/)
+- [YAML](https://emacs-lsp.github.io/lsp-mode/page/lsp-yaml/)
 
 ## Go
 

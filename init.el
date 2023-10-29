@@ -218,7 +218,8 @@
     :setq `((gc-cons-threshold . ,(* 512 1024 1024)))
     :hook ((python-mode-hook . lsp)
            (go-mode-hook . lsp)
-           (web-mode-hook . lsp))
+           (web-mode-hook . lsp)
+           (yaml-mode-hook . lsp))
     :config
     (leaf lsp-ui
       :ensure t
