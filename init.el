@@ -226,6 +226,10 @@
       :commands lsp-ui-mode
       :custom
       (lsp-ui-peek-enable . t)
+      (lsp-ui-doc-enable . t)
+      (lsp-ui-doc-position . `at-point)
+      (lsp-ui-doc-show-with-cursor . t)
+      (lsp-ui-doc-show-with-mouse . t)
       :config
       (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
       (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
