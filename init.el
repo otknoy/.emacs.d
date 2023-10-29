@@ -265,6 +265,8 @@
     (leaf projectile
       :ensure t
       :global-minor-mode t))
+  (leaf treemacs
+    :ensure t)
   )
 
 (leaf modes
