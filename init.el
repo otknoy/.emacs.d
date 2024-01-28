@@ -86,7 +86,6 @@
     :bind (("C-z" . nil)))
   (leaf other
     :config
-    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
     (setq custom-file (locate-user-emacs-file "custom.el")))
   )
 
