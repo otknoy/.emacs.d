@@ -281,6 +281,9 @@
         :el-get damienlevin/GoTests-Emacs
         :require t
         )
+      (leaf go-impl
+	:ensure t
+	)
       )
     (leaf web-mode
       :ensure t
