@@ -265,6 +265,28 @@
       :global-minor-mode t))
   (leaf treemacs
     :ensure t)
+  (leaf copilot
+    :el-get (copilot
+             :type github
+             :pkgname "copilot-emacs/copilot.el"
+             )
+    :config
+    (defun my/copilot-tab ()
+      (interactive)
+      (or (copilot-accept-completion)
+          (indent-for-tab-command)))
+    (leaf editorconfig
+      :ensure t
+      )
+    (leaf s
+      :ensure t
+      )
+    (leaf dash
+      :ensure t
+      )
+    (with-eval-after-load 'copilot
+      (define-key copilot-mode-map (kbd "<tab>") #'my/copilot-tab))
+    )
   )
 
 (leaf modes
