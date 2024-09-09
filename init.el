@@ -294,6 +294,7 @@
       :config
       (leaf request
 	:ensure t
+	)
       )
     )
   )
