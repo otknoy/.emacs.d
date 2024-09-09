@@ -286,6 +286,15 @@
       )
     (with-eval-after-load 'copilot
       (define-key copilot-mode-map (kbd "<tab>") #'my/copilot-tab))
+    (leaf copilot-chat
+      :el-get (copilot-chat
+               :type github
+               :pkgname "chep/copilot-chat.el"
+               )
+      :config
+      (leaf request
+	:ensure t
+      )
     )
   )
 
