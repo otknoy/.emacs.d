@@ -22,7 +22,6 @@
     :init
     ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
     (leaf hydra :ensure t)
-    (leaf el-get :ensure t)
     (leaf blackout :ensure t)
 
     :config
@@ -100,6 +99,7 @@
     (load-theme 'modus-vivendi :no-confirm)
     )
   (leaf font
+    :when (display-graphic-p)
     :config
     (set-face-attribute 'default nil
                         :family "Ricty"
@@ -266,10 +266,7 @@
   (leaf treemacs
     :ensure t)
   (leaf copilot
-    :el-get (copilot
-             :type github
-             :pkgname "copilot-emacs/copilot.el"
-             )
+    :vc (:url "https://github.com/copilot-emacs/copilot.el")
     :config
     (defun my/copilot-tab ()
       (interactive)
@@ -287,10 +284,7 @@
     (with-eval-after-load 'copilot
       (define-key copilot-mode-map (kbd "<tab>") #'my/copilot-tab))
     (leaf copilot-chat
-      :el-get (copilot-chat
-               :type github
-               :pkgname "chep/copilot-chat.el"
-               )
+      :vc (:url "https://github.com/chep/copilot-chat.el")
       :config
       (leaf request
 	:ensure t
@@ -310,7 +304,7 @@
              (go-mode-hook . (lambda () (setq tab-width 2))))
       :config
       (leaf gotests
-        :el-get damienlevin/GoTests-Emacs
+        :vc (:url "https://github.com/damienlevin/GoTests-Emacs")
         :require t
         )
       (leaf go-impl
