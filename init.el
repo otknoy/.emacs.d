@@ -99,6 +99,7 @@
     (load-theme 'modus-vivendi :no-confirm)
     )
   (leaf font
+    :when (display-graphic-p)
     :config
     (set-face-attribute 'default nil
                         :family "Ricty"
