@@ -217,7 +217,8 @@
     :hook ((python-mode-hook . lsp)
            (go-mode-hook . lsp)
            (web-mode-hook . lsp)
-           (yaml-mode-hook . lsp))
+           (yaml-mode-hook . lsp)
+           (dockerfile-mode-hook . lsp))
     :config
     (leaf lsp-ui
       :ensure t
