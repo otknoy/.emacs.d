@@ -102,11 +102,11 @@
     :when (display-graphic-p)
     :config
     (set-face-attribute 'default nil
-                        :family "Ricty"
-                        :height 135)
+                        :family "UDEV Gothic NF"
+                        :height 130)
     (set-fontset-font
      nil 'japanese-jisx0208
-     (font-spec :family "Ricty")))
+     (font-spec :family "UDEV Gothic NF")))
   (leaf window
     :config
     (menu-bar-mode 0)
