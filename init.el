@@ -111,7 +111,7 @@
     :config
     (menu-bar-mode 0)
     (tool-bar-mode 0)
-    (set-frame-parameter nil 'alpha 90)
+    (set-frame-parameter nil 'alpha 80)
     (set-frame-size (selected-frame) 180 80)
     (leaf private-desktop
       :if
