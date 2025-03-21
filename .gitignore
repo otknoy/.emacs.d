@@ -1,10 +1,17 @@
-/tramp
-
 /auto-save-list/
 /backup/*
+.lsp-session-v1
+
+/tramp
 
 /elpa/
+.last-package-update-day
 
-.lsp-session-v1
+.cache/
+eln-cache/
+recentf
+
+projects
+projectile-bookmarks.eld
 
 !.gitkeep
