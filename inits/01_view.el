@@ -1,3 +1,6 @@
+(use-package blackout
+  :ensure t)
+
 (use-package emacs
  :custom
  (truncate-lines t)
