@@ -61,14 +61,14 @@
 
 (use-package auto-highlight-symbol
  :ensure t
- :diminish
+ :blackout t
  :config
  (ahs-set-idle-interval 0.2)
  (global-auto-highlight-symbol-mode t))
 
 (use-package highlight-indent-guides
  :ensure t
- :diminish
+ :blackout t
  :custom
  (highlight-indent-guides-auto-enabled t)
  (highlight-indent-guides-responsive t)
