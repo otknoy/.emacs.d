@@ -66,11 +66,6 @@
  (ahs-set-idle-interval 0.2)
  (global-auto-highlight-symbol-mode t))
 
-(use-package highlight-indent-guides
- :ensure t
- :blackout t
- :custom
- (highlight-indent-guides-auto-enabled t)
- (highlight-indent-guides-responsive t)
- (highlight-indent-guides-method 'character)
- :hook ((js-mode yaml-mode) . highlight-indent-guides-mode))
+(use-package indent-bars
+  :ensure t
+  :hook ((go-mode python-mode yaml-mode json-mode) . indent-bars-mode))
