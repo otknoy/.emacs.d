@@ -14,6 +14,7 @@
   (global-auto-revert-mode 1))
 
 (use-package files
+  :straight nil
   :ensure nil
   :custom
   (auto-save-timeout 15)

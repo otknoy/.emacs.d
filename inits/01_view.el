@@ -33,6 +33,7 @@
 
 ;; window and frame
 (use-package frame
+  :straight nil
  :config
  (set-frame-parameter nil 'alpha 80)
  (set-frame-size (selected-frame) 180 80)

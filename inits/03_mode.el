@@ -7,7 +7,7 @@
   (go-mode . (lambda () (setq tab-width 2)))
   :config
   (use-package gotests
-    :vc (:url "https://github.com/damienlevin/GoTests-Emacs")
+    :straight (:host github :repo "damienlevin/GoTests-Emacs")
     :ensure t)
   (use-package go-impl
     :ensure t))
