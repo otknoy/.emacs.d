@@ -45,9 +45,9 @@
 
  ;; for private macbook
  (when (and (eq system-type 'darwin)
-	   (string= (system-name) "MacBook.local"))
-   (set-frame-size (selected-frame) 120 60)
-   (set-frame-position nil 564 25)))
+	   (string-equal (system-name) "MBA.local"))
+   (set-frame-size (selected-frame) 117 70)
+   (set-frame-position nil 850 42)))
 
 (use-package dimmer
  :ensure t
