@@ -18,6 +18,7 @@
  ("dockerfile-mode" . "97733ce074b1252c1270fd5e8a53d178b66668ed")
  ("el-get" . "447b7efc9fca29a087f4ec29c5d8ccb580cd1c78")
  ("eldoc" . "69030e0802f47b5fd32b559f2c92b7a8bf0ad2e3")
+ ("emacs-reformatter" . "2bd8818f3f2119a3876e574a437495214c87bc81")
  ("emacs-which-key" . "38d4308d1143b61e4004b6e7a940686784e51500")
  ("emacsmirror-mirror" . "c05ac942a11bae3b84a60109aafde3cea367da82")
  ("exec-path-from-shell" . "6146fdc16e9882df270be7e58ae8d628032d6bc4")

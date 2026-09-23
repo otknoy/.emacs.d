@@ -46,3 +46,13 @@
 
 (use-package docker-compose-mode
   :ensure t)
+
+(use-package reformatter
+  :ensure t
+  :config
+  (reformatter-define yamlfmt
+		      :program "yamlfmt"
+		      :args '("-in")
+		      :lighter " YAMLfmt")
+  (add-hook 'yaml-mode-hook #'yamlfmt-on-save-mode)
+  (add-hook 'yaml-ts-mode-hook #'yamlfmt-on-save-mode))

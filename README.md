@@ -28,3 +28,9 @@ $ go install golang.org/x/tools/cmd/goimports@latest
 $ go install github.com/rinchsan/gosimports/cmd/gosimports@latest
 $ go install github.com/cweill/gotests/gotests@latest
 ```
+
+## Misc
+
+```sh
+$ go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+```
