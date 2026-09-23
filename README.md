@@ -7,6 +7,11 @@ $ emacs --batch -f batch-byte-compile init.el
 - https://github.com/conao3/leaf.el
 - https://github.com/emacs-lsp/lsp-mode
 
+## パッケージ管理（straight.el）
+
+- 更新: Emacs で `M-x straight-pull-all` を実行する。
+- ロックファイル作成: `M-x straight-freeze-versions` を実行し、生成された `straight/versions/default.el` をコミットする。
+- 再現: 設定とロックファイルを配置して Emacs を起動する。既存環境をロックファイルの版に戻す場合は `M-x straight-thaw-versions` を実行する。
 
 ## LSP
 
